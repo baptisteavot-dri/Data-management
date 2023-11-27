@@ -3,7 +3,7 @@ import pandas as pd
 # import SampleSheet.csv files
 keys=list()
 for i in range(1,56):
-    X=pd.read_csv('key_'+str(i)+'.csv')
+    X=pd.read_csv('keys/key_'+str(i)+'.csv')
     keys.append(X)
 
 # concatenate all files within the array
@@ -11,7 +11,8 @@ for i in range(1,56):
 Z=pd.concat(keys,axis=0)
 Z.to_csv('keys.csv')
 
-igfq0067=pd.read_csv('samplesheet_IGFQ001167.tsv',sep='\t')
+igfq0067=pd.read_csv('samplesheet_IGFQ001167.csv')
+print(igfq0067.columns)
 igfq0067['CaseID']=igfq0067['CASE ID']
 Z=pd.concat([Z,igfq0067],axis=0)
 
@@ -268,7 +269,7 @@ bulkRNA['New_name_R2']=bulkRNA['path_datatype']+ \
 #bulkRNA=bulkRNA.loc[bulkRNA['Study_ID']=='IGFQ001167']
 
 # import CD33 genotype data
-cd33=pd.read_csv('cd33_genotype.tsv',sep='\t',quotechar='"')
+cd33=pd.read_csv('cd33_genotype.csv')
 cd33['individual']=cd33['individual'].str.replace('-','_')
 cd33.set_index('individual',inplace=True)
 
@@ -324,8 +325,4 @@ R2.close()
 
 bulkRNA['New_name_R1']=bulkRNA['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/','')
 bulkRNA['New_name_R2']=bulkRNA['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/','')
-
-uploaded=pd.read_csv('uploaded.txt',header=None,sep='  ')
-r1=set(bulkRNA['New_name_R1'])
-r2=set(bulkRNA['New_name_R2'])
                 
