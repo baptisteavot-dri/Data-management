@@ -253,8 +253,8 @@ pathdatatype={'snRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/
               'bulkRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
               'snRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/',
               'bulkRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
-              'bulkRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ',
-              'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ'}
+              'bulkRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
+              'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/'}
 
 
 bulkRNA['data_type_project']=bulkRNA['data_type']+'_'+bulkRNA['Study']
