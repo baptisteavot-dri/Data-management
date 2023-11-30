@@ -280,8 +280,8 @@ bulkRNA['New_name_R2']=bulkRNA['path_datatype']+ \
     '_S1_L001_R2_001.fastq.gz'
 
 # selecting only one study ID for testing
-bulkRNA=bulkRNA.loc[ (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
-#bulkRNA=bulkRNA.loc[(bulkRNA['Study_ID']=='IGFQ001167') | (bulkRNA['Study_ID']=='IGFQ000949') | (bulkRNA['Study_ID']=='IGFQ001404')]
+#bulkRNA=bulkRNA.loc[ (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
+bulkRNA=bulkRNA.loc[(bulkRNA['Study_ID']=='IGFQ001167') | (bulkRNA['Study_ID']=='IGFQ000949') | (bulkRNA['Study_ID']=='IGFQ001404') | (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
 
 # import CD33 genotype data
 cd33=pd.read_csv('cd33_genotype.csv')
@@ -307,16 +307,35 @@ bulkRNA.to_csv('sampleInfo_bulkRNAseq_trem2_internal.csv')
 bulkRNA['BrainBankNetworkID']=bulkRNA['BrainBankNetworkID_original']
 
 # saving sample sheet and metadata to csv file
-bulkRNA[['Study', 'Study_ID','BrainBankNetworkID',
+bulkRNA.loc[bulkRNA['Study']=='MAP'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name']]. \
-                to_csv('samplesheet_bulkRNAseq.csv',index=False)
+                to_csv('MAP/samplesheet_bulkRNAseq.csv',index=False)
 
-bulkRNA[['BrainBankNetworkID',
+bulkRNA.loc[bulkRNA['Study']=='MAP'][['BrainBankNetworkID',
+                'BrainBank','Braak','Sex','Age',
+                'NeuropathologicalDiagnosis',
+                'TREM2Variant','APOE',
+                'PostMortemDelayHours']].drop_duplicates('BrainBankNetworkID'). \
+                to_csv('MAP/donor_metadata.csv', index=False)
+
+bulkRNA.loc[bulkRNA['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
+        'Brain region','Sample_Name']]. \
+                to_csv('TREM2/samplesheet_bulkRNAseq.csv',index=False)
+
+bulkRNA.loc[bulkRNA['Study']=='TREM2'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
                 'TREM2Variant','APOE','CD33',
                 'PostMortemDelayHours','CD33_group']].drop_duplicates('BrainBankNetworkID'). \
-                to_csv('metadata_bulkRNAseq.csv', index=False)
+                to_csv('TREM2/donor_metadata.csv', index=False)
+
+bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
+        'Brain region','Sample_Name']]. \
+                to_csv('TissueQC/samplesheet_bulkRNAseq.csv',index=False) 
+
+bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
+                        'Brain region','Sample_Name']]. \
+                to_csv('TissueQC/donor_metadata.csv', index=False)
 
 bulkRNA[[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,'New_name_R1','New_name_R2']]. \
     to_csv('paths_bulkRNAseq.csv',index=False,header=None)
