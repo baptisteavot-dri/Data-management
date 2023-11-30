@@ -1,0 +1,13 @@
+#PBS -S /bin/bash
+#PBS -lselect=1:ncpus=40:mem=30gb
+#PBS -l walltime=24:00:00
+#PBS -N upload
+#PBS -o upload.out
+#PBS -e upload.err
+# -W depend=afterok:8547152.pbs
+
+cd /rds/general/user/bavot/home/data_management
+module load parallel/default
+taskset 30 parallel --will-cite -j 3 --colsep ',' ~/miniconda3/bin/synapse add --parentid {3} {1} :::: to_upload.csv
+taskset 30 parallel --will-cite -j 3 --colsep ',' ~/miniconda3/bin/synapse add --parentid {3} {2} :::: to_upload.csv
+

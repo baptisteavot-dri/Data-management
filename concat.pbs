@@ -1,0 +1,11 @@
+#PBS -S /bin/bash
+#PBS -lselect=1:ncpus=55:mem=64gb
+#PBS -l walltime=24:00:00
+#PBS -N concat
+#PBS -o concat.out
+#PBS -e concat.err
+
+cd /rds/general/user/bavot/home/data_management
+module load parallel/default
+# parallel --will-cite -j 50 --colsep ',' bash concat.sh {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: paths_R1.csv
+parallel --will-cite -j 50 --colsep ',' bash concat.sh {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: paths_R2.csv
