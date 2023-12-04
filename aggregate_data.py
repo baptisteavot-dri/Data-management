@@ -303,7 +303,7 @@ bulkRNA.set_index('Sample_ID',inplace=True,drop=False)
 bulkRNA=bulkRNA.join(counts)
 
 # saving test metadata and paths to csv file
-bulkRNA.to_csv('sampleInfo_bulkRNAseq_trem2_internal.csv')
+bulkRNA.loc[bulkRNA['Study']=='TREM2'].to_csv('sampleInfo_bulkRNAseq_trem2_internal.csv')
 bulkRNA['BrainBankNetworkID']=bulkRNA['BrainBankNetworkID_original']
 
 # saving sample sheet and metadata to csv file
@@ -331,7 +331,7 @@ bulkRNA.loc[bulkRNA['Study']=='TREM2'][['BrainBankNetworkID',
 
 bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name']]. \
-                to_csv('TissueQC/samplesheet_bulkRNAseq.csv',index=False) 
+                to_csv('TissueQC/samplesheet_bulkRNAseq.csv',index=False)
 
 bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
                         'Brain region','Sample_Name']]. \
