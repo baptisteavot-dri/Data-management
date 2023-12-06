@@ -194,9 +194,6 @@ bulkRNA['Brain region']=bulkRNA['Brain region'].str.replace('SOM','SSC')
 # creating new standardized sample names
 bulkRNA['Sample_Name']=bulkRNA['BrainBankNetworkID_normalized']+'_'+bulkRNA['Brain region']+'_S1'
 
-# adding sequencing batch column
-bulkRNA['Sequencing_batch']=1
-
 # replacing diagnosis column name
 bulkRNA['NeuropathologicalDiagnosis']=bulkRNA['AD/CTRL']
 
@@ -206,7 +203,7 @@ bulkRNA['TREM2Variant']=bulkRNA['TREM2Variant'].fillna('N/A')
 
 # keeping only relevant metadata columns for bulkRNAseq
 bulkRNA=bulkRNA[['Sample_ID','Sample_Name','Sample_Name_original',
-                 'Sequencing_batch','BrainBankNetworkID_original',
+                 'BrainBankNetworkID_original',
                  'BrainBank','CaseID','Study','Brain region',
                  'Brain region original','Braak','Sex','Age',
                  'NeuropathologicalDiagnosis','TREM2Variant',
@@ -269,18 +266,7 @@ bulkRNA['data_type_project']=bulkRNA['data_type']+'_'+bulkRNA['Study']
 bulkRNA['path_datatype']=bulkRNA['data_type_project'].map(pathdatatype)
 bulkRNA['synapse_dir_id']=bulkRNA['data_type_project'].map(pathsynapse)
 
-# creating new names for fastq files
-bulkRNA['New_name_R1']=bulkRNA['path_datatype']+ \
-    bulkRNA['BrainBankNetworkID_normalized']+ \
-    '_'+bulkRNA['Brain region']+ \
-    '_S1_L001_R1_001.fastq.gz'
-bulkRNA['New_name_R2']=bulkRNA['path_datatype']+ \
-    bulkRNA['BrainBankNetworkID_normalized']+ \
-    '_'+bulkRNA['Brain region']+ \
-    '_S1_L001_R2_001.fastq.gz'
-
 # selecting only one study ID for testing
-#bulkRNA=bulkRNA.loc[ (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
 bulkRNA=bulkRNA.loc[(bulkRNA['Study_ID']=='IGFQ001167') | (bulkRNA['Study_ID']=='IGFQ000949') | (bulkRNA['Study_ID']=='IGFQ001404') | (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
 
 # import CD33 genotype data
@@ -301,6 +287,23 @@ bulkRNA=bulkRNA.join(cd33)
 bulkRNA.set_index('Sample_ID',inplace=True,drop=False)
 
 bulkRNA=bulkRNA.join(counts)
+
+bulkRNA['number_of_duplicates']=bulkRNA.groupby(['Sample_Name'])['Sample_Name'].transform('count')
+
+bulkRNA['Sequencing_batch']=bulkRNA.groupby(['Sample_Name']).cumcount()+1
+bulkRNA['Sequencing_batch']=bulkRNA['Sequencing_batch'].astype(str)
+bulkRNA['Sequencing_batch']='S'+bulkRNA['Sequencing_batch']
+bulkRNA['Sample_Name']=bulkRNA['Sample_Name'].str.replace('_S1','')
+bulkRNA['Sample_Name']=bulkRNA['Sample_Name']+'_'+bulkRNA['Sequencing_batch']
+
+# creating new names for fastq files
+bulkRNA['New_name_R1']=bulkRNA['path_datatype']+ \
+    bulkRNA['Sample_Name']+'_L001_R1_001.fastq.gz'
+bulkRNA['New_name_R2']=bulkRNA['path_datatype']+ \
+    bulkRNA['Sample_Name']+'_L001_R2_001.fastq.gz'
+
+# to remove later
+bulkRNA=bulkRNA.loc[bulkRNA['number_of_duplicates']==2]
 
 # saving test metadata and paths to csv file
 bulkRNA.loc[bulkRNA['Study']=='TREM2'].to_csv('sampleInfo_bulkRNAseq_trem2_internal.csv')
