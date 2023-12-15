@@ -2,17 +2,15 @@ import pandas as pd
 
 # import SampleSheet.csv files
 keys=list()
-for i in range(1,56):
+for i in range(1,142):
     X=pd.read_csv('keys/key_'+str(i)+'.csv')
     keys.append(X)
 
 # concatenate all files within the array
 
 Z=pd.concat(keys,axis=0)
-Z.to_csv('keys.csv')
 
 igfq0067=pd.read_csv('samplesheet_IGFQ001167.csv')
-print(igfq0067.columns)
 igfq0067['CaseID']=igfq0067['CASE ID']
 Z=pd.concat([Z,igfq0067],axis=0)
 
@@ -24,91 +22,83 @@ Z.drop(['misc','misc_1'],axis=1,inplace=True)
 # remove duplicates
 Z.drop_duplicates('Sample_ID',inplace=True)
 
-# merge keys with snRNAseq and bulkRNAseq metadata
-def merge(Z,data_type):
+# keeping only relevant columns from key file
+keys=Z[['Sample_ID','Sample_Name']]
+keys['Sample_Name']=keys['Sample_Name'].str.replace('DPFC','FC')
+keys['Sample_Name']=keys['Sample_Name'].str.replace('PFC','FC')
 
-    # keeping only relevant columns from key file
-    keys=Z[['Sample_ID','Sample_Name']]
+# extracting brain region from sample name
+keys['Brain region'] = keys.Sample_Name.str.extract(pat='(EC|SSC|mTemp|MTEMP|MTG|SOM|FC|ITG)',expand=False)
+keys['Enrichment'] = keys.Sample_Name.str.extract(pat='(UNS|ENR|NEG)',expand=False)
+keys['Enrichment'] = keys['Enrichment'].str.replace('NEG','GEN')
+keys['Enrichment'] = keys['Enrichment'].str.replace('ENR','GEN')
+keys['Brain region'] = keys['Brain region'].str.replace('FC','PFC')
 
-    # extracting brain region from sample name
-    keys['Brain region'] = keys.Sample_Name.str.extract(pat='(EC|SSC|mTemp|MTEMP|SOM|DPFC|ITG)',expand=False)
+# keeping original sample name
+keys['Sample_Name_original']=keys['Sample_Name']
 
-    # keeping original sample name
-    keys['Sample_Name_original']=keys['Sample_Name']
+# normalizing sample name
 
-    # normalizing sample name
-    keys['Sample_Name_normalized']=keys['Sample_Name'].str.replace('-','_')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('.','_')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace(' ','_')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('/','_')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_EC','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SSC','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_mTemp','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_MTEMP','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SOM','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_DPFC','')
-    keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_ITG','')
+keys['Sample_Name_normalized']=keys['Sample_Name'].str.replace('-','_')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('.','_')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace(' ','_')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('/','_')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_UNS','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_ENR','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_NEG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_EC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SSC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_mTemp','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_MTEMP','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_MTG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SOM','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_DPFC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_ITG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('EC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('SSC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('mTemp','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('MTEMP','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('SOM','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('DPFC','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('ITG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('MTG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_[0-9]$','',regex=True) 
 
-    # merging specific to snRNAseq
-    if data_type=='snRNAseq':
-        
-        # importing snRNAseq metadata
-        snRNA=pd.read_csv('snRNAseq_10x.csv')
+  
+# importing AD database
+map_database=pd.read_csv('Map_AD_Database.csv')
 
-        # normalizing BrainBankID
-        snRNA['Brain Bank ID (normalized)']=snRNA['Brain Bank ID'].str.replace('-','_')
-        snRNA['Brain Bank ID (normalized)']=snRNA['Brain Bank ID (normalized)'].str.replace('.','_')
-        snRNA['Brain Bank ID (normalized)']=snRNA['Brain Bank ID (normalized)'].str.replace('/','_')
+# normalizing caseID that will be used for merging
+map_database['CaseID (normalized)']=map_database['CaseID'].str.replace('-','_')
+map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('.','_')
+map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('/','_')
+map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('*','')
 
-        # setting index for merging
-        snRNA.set_index("Brain Bank ID (normalized)",inplace=True)
-        keys.set_index('Sample_Name_normalized',inplace=True,drop=False)
+# normalizing BrainBankNetworkID
+map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID '].str.replace('-','_')
+map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('.','_')
+map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('/','_')
 
-        # merging keys with snRNAseq metadata
-        snRNA=snRNA.join(keys['Sample_ID'])
+# setting index for merging
+map_database.set_index('CaseID (normalized)',inplace=True, drop=False)
+keys.set_index('Sample_Name_normalized',inplace=True,drop=False)
 
-        return snRNA
-    
-    # merging specific to bulkRNAseq
-    else:
+# dropping rows with missing BrainBankID
+map_database.dropna(subset=['BrainBankID'],inplace=True)
 
-        # importing AD database
-        map_database=pd.read_csv('Map_AD_Database.csv')
+# keeping original BrainBankID
+map_database['BrainBankNetworkID_original']=map_database['BrainBankNetworkID ']
+map_database_2=map_database.set_index('BrainBankNetworkID_normalized',drop=False)
 
-        # normalizing caseID that will be used for merging
-        map_database['CaseID (normalized)']=map_database['CaseID'].str.replace('-','_')
-        map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('.','_')
-        map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('/','_')
+keys.to_csv('keys.csv')
 
-        # normalizing BrainBankNetworkID
-        map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID '].str.replace('-','_')
-        map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('.','_')
-        map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('/','_')
+# merging keys with AD database
+keys_merged_1=map_database.join(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original']])
+keys_merged_2=map_database_2.join(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original']])
 
-        # setting index for merging
-        map_database.set_index('CaseID (normalized)',inplace=True, drop=False)
-        keys.set_index('Sample_Name_normalized',inplace=True,drop=False)
+# concatenating the two dataframes
 
-        # dropping rows with missing BrainBankID
-        map_database.dropna(subset=['BrainBankID'],inplace=True)
-
-        # keeping original BrainBankID
-        map_database['BrainBankNetworkID_original']=map_database['BrainBankNetworkID ']
-        map_database_1=map_database.set_index('BrainBankNetworkID_normalized',drop=False)
-
-        # merging keys with AD database
-        bulkRNA_1=map_database.join(keys[['Sample_ID','Brain region','Sample_Name_normalized','Sample_Name_original']])
-        bulkRNA_2=map_database_1.join(keys[['Sample_ID','Brain region','Sample_Name_normalized','Sample_Name_original']])
-
-        # concatenating the two dataframes
-
-        bulkRNA=pd.concat([bulkRNA_1,bulkRNA_2],axis=0)
-
-        return bulkRNA
-
-# apply merge function to snRNAseq and bulkRNAseq
-snRNA=merge(Z,'snRNAseq')
-bulkRNA=merge(Z,'bulkRNAseq')
+all_data=pd.concat([keys_merged_1,keys_merged_2],axis=0)
 
 # opening text file with all fastq paths
 all_fastqs = open("all_fastqs.txt", "r")
@@ -118,7 +108,7 @@ all_fastqs_filtered = open("all_fastqs_filtered.csv", "w+")
 for line in all_fastqs.readlines():
 
     # filtering fastq paths
-    if ('IGF' in line) & (('igf/' in line)|('seqdata/' in line)):
+    if ('IGF' in line) & (('archived_samples_do_not_use' not in line)):
         dics=line.split('/')
         # iterating through all directories in the path
         for i in dics:
@@ -136,8 +126,9 @@ all_fastqs_filtered.close()
 paths=pd.read_csv('all_fastqs_filtered.csv',header=None)
 
 # setting base path
-paths['base']=' /rds/general/project/ukdrmultiomicsproject/live'
+paths['base']=' /'
 paths[1]=paths['base']+paths[1]
+paths[1]=paths[1].str.replace(' ','')
 
 counts=paths[0].value_counts()
 
@@ -145,94 +136,55 @@ counts=paths[0].value_counts()
 paths = paths.groupby(0)[1].agg(';'.join)
 paths = paths.to_frame()
 
-# merging paths with snRNAseq metadata
-snRNA.set_index('Sample_ID',inplace=True)
-snRNA=snRNA.join(paths)
-
-# splitting paths into separate columns
-S=snRNA[1].str.split(';',expand=True)
-snRNA.drop([1],axis=1,inplace=True)
-
-# joining path dataframe with snRNAseq metadata
-snRNA=snRNA.join(S)
-
-# selecting only TREM2 project samples
-snRNA=snRNA.loc[snRNA['Study']=='TREM2']
-snRNA.dropna(inplace=True,subset=[0])
-
-# dropping unnecessary columns
-snRNA.drop(['Sorted?','User','Comment',
-                   'FACSSeparation','Kit',
-                   'CellRecovery ','cDNAPCRCycles',
-                   'cDNABioanalyserDate',
-                   'cDNAAveragePeak',
-                   'QubitcDNAconcng/ul',
-                   'NgtoLibraryPrep',
-                   'IndexWell','FinalPCRcycles',
-                   'FinalLibBioAnalyserDate',
-                   'LibAveragePeak','QbitLibConcNg/Ul',
-                   'LibConcnM','Pass/Fail','Comments',
-                   'Sequence?','TakenForSeqUl',
-                   'SequencingDate','QuoteNumber',
-                   'SampleSequencingID','PooledVolume',
-                   'Dilutions50/libConcnM',
-                   'AllSamplesIds',
-                   'StudyID'],axis=1,inplace=True)
-
-# extracting study ID from paths
-snRNA['Study_ID']=snRNA[0].str.extract(r'(IGFQ[0-9]{6})')
-snRNA.insert(0,'Study_ID',snRNA.pop('Study_ID'))
-
 # keeping original brain region acronyms
-bulkRNA['Brain region original']=bulkRNA['Brain region']
+all_data['Brain region original']=all_data['Brain region']
 
 # renaming brain regions to standard names
-bulkRNA['Brain region']=bulkRNA['Brain region'].str.replace('mTemp','MTG')
-bulkRNA['Brain region']=bulkRNA['Brain region'].str.replace('MTEMP','MTG')
-bulkRNA['Brain region']=bulkRNA['Brain region'].str.replace('SOM','SSC')
-
-# creating new standardized sample names
-bulkRNA['Sample_Name']=bulkRNA['BrainBankNetworkID_normalized']+'_'+bulkRNA['Brain region']+'_S1'
+all_data['Brain region']=all_data['Brain region'].str.replace('mTemp','MTG')
+all_data['Brain region']=all_data['Brain region'].str.replace('MTEMP','MTG')
+all_data['Brain region']=all_data['Brain region'].str.replace('SOM','SSC')
 
 # replacing diagnosis column name
-bulkRNA['NeuropathologicalDiagnosis']=bulkRNA['AD/CTRL']
+all_data['NeuropathologicalDiagnosis']=all_data['AD/CTRL']
 
 # mapping variant ID to variant names
-bulkRNA['TREM2Variant']=bulkRNA['TREM2VariantID'].map({2:'CV',8:'R62H',7:'R47H',1:'N/A',3:'D87N'})
-bulkRNA['TREM2Variant']=bulkRNA['TREM2Variant'].fillna('N/A')
+all_data['TREM2Variant']=all_data['TREM2VariantID'].map({2:'CV',8:'R62H',7:'R47H',1:'N/A',3:'D87N'})
+all_data['TREM2Variant']=all_data['TREM2Variant'].fillna('N/A')
 
-# keeping only relevant metadata columns for bulkRNAseq
-bulkRNA=bulkRNA[['Sample_ID','Sample_Name','Sample_Name_original',
-                 'BrainBankNetworkID_original',
-                 'BrainBank','CaseID','Study','Brain region',
+# keeping only relevant metadata columns for all_dataseq
+all_data=all_data[['Sample_ID','Sample_Name_original',
+                 'BrainBankNetworkID_original','BrainBank',
+                 'Enrichment','CaseID','Study','Brain region',
                  'Brain region original','Braak','Sex','Age',
                  'NeuropathologicalDiagnosis','TREM2Variant',
                  'APOE','PostMortemDelayHours',
+                 'Sample_Name_normalized',
                  'BrainBankNetworkID_normalized']]
 
 # setting the right indeces before merging
-bulkRNA.set_index('Sample_ID',inplace=True,drop=False)
+all_data.set_index('Sample_ID',inplace=True,drop=False)
 
 # dropping duplicate IGF IDs
-bulkRNA.drop_duplicates('Sample_ID',inplace=True)
+all_data.drop_duplicates('Sample_ID',inplace=True)
 
-# joining paths with bulkRNAseq metadata
-bulkRNA=bulkRNA.join(paths)
+# joining paths with all_dataseq metadata
+all_data=all_data.join(paths)
 
 # splitting paths into separate columns
-S=bulkRNA[1].str.split(';',expand=True)
-bulkRNA.drop([1],axis=1,inplace=True)
-bulkRNA=bulkRNA.join(S)
+S=all_data[1].str.split(';',expand=True)
+all_data.drop([1],axis=1,inplace=True)
+all_data=all_data.join(S)
 
 # removing rows that do not contain fastq paths
-bulkRNA.dropna(inplace=True,subset=[0])
-bulkRNA.drop(['Sample_ID'],axis=1,inplace=True)
+all_data.dropna(inplace=True,subset=[0])
+all_data.drop(['Sample_ID'],axis=1,inplace=True)
 
 # extracting study ID from paths
-bulkRNA['Study_ID']=bulkRNA[0].str.extract(r'(IGFQ[0-9]{6})')
+all_data[0]=all_data[0].astype(str)
+all_data['Study_ID']=all_data[0].str.extract(r'(IGFQ[0-9]{6})')
 
 # bringing study ID to the first column
-bulkRNA.insert(0,'Study_ID',bulkRNA.pop('Study_ID'))
+all_data.insert(0,'Study_ID',all_data.pop('Study_ID'))
 
 studyid2datatype={'IGFQ000852':'snRNAseq','IGFQ000883':'snRNAseq',
                   'IGFQ000949':'bulkRNAseq','IGFQ000955':'snRNAseq',
@@ -244,9 +196,15 @@ studyid2datatype={'IGFQ000852':'snRNAseq','IGFQ000883':'snRNAseq',
                   'IGFQ001613':'snRNAseq','IGFQ001637':'snRNAseq',
                   'IGFQ001651':'snRNAseq','IGFQ001663':'snRNAseq'}
 
-bulkRNA['data_type']=bulkRNA['Study_ID'].map(studyid2datatype)
+studyid2enrichment={'IGFQ000852':'GEN','IGFQ000883':'UNS',
+                    'IGFQ000955':'UNS','IGFQ001110':'UNS',
+                    'IGFQ001346':'GEN'}
 
-pathdatatype={'snRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/',
+all_data['data_type']=all_data['Study_ID'].map(studyid2datatype)
+all_data.loc[ all_data["Enrichment"].isnull(),'Enrichment'] = all_data.loc[all_data["Enrichment"].isnull(),"Study_ID"].map(studyid2enrichment)
+
+pathdatatype={'snRNAseq_UNS_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/snRNAseq_cortical_tissue/TotalPopulation/Raw_FASTQ/',
+              'snRNAseq_GEN_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/snRNAseq_cortical_tissue/GliaEnriched/Raw_FASTQ/',
               'bulkRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
               'snRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/',
               'bulkRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
@@ -254,7 +212,8 @@ pathdatatype={'snRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/
               'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/'
               }
 
-pathsynapse={'snRNAseq_TREM2':'syn53063013',
+pathsynapse={'snRNAseq_UNS_TREM2':'syn53165789',
+             'snRNAseq_GEN_TREM2':'syn53165787',
               'bulkRNAseq_TREM2':'syn52943643',
               'snRNAseq_MAP':'syn53061538',
               'bulkRNAseq_MAP':'syn53061537',
@@ -262,12 +221,13 @@ pathsynapse={'snRNAseq_TREM2':'syn53063013',
               'snRNAseq_Tissue Quality Control':'syn53061540'
               }
 
-bulkRNA['data_type_project']=bulkRNA['data_type']+'_'+bulkRNA['Study']
-bulkRNA['path_datatype']=bulkRNA['data_type_project'].map(pathdatatype)
-bulkRNA['synapse_dir_id']=bulkRNA['data_type_project'].map(pathsynapse)
-
-# selecting only one study ID for testing
-bulkRNA=bulkRNA.loc[(bulkRNA['Study_ID']=='IGFQ001167') | (bulkRNA['Study_ID']=='IGFQ000949') | (bulkRNA['Study_ID']=='IGFQ001404') | (bulkRNA['Study_ID']=='IGFQ001509') | (bulkRNA['Study_ID']=='IGFQ001462')]
+all_data['data_type_project']=all_data['data_type']+'_'+all_data['Study']
+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'), 'data_type_project']= \
+    all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'data_type']+'_'+ \
+    all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']+'_'+ \
+    all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Study']
+all_data['path_datatype']=all_data['data_type_project'].map(pathdatatype)
+all_data['synapse_dir_id']=all_data['data_type_project'].map(pathsynapse)
 
 # import CD33 genotype data
 cd33=pd.read_csv('cd33_genotype.csv')
@@ -275,108 +235,159 @@ cd33['individual']=cd33['individual'].str.replace('-','_')
 cd33.set_index('individual',inplace=True)
 
 # formatting sample names for merging
-bulkRNA['index']=bulkRNA['Sample_Name_original'].str.replace('-','_')
-bulkRNA['index']=bulkRNA['index'].str.replace('_EC','')
-bulkRNA['index']=bulkRNA['index'].str.replace('_SSC','')
-bulkRNA['index']=bulkRNA['index'].str.replace('_mTemp','')
+all_data['index']=all_data['Sample_Name_original'].str.replace('-','_')
+all_data['index']=all_data['index'].str.replace('_EC','')
+all_data['index']=all_data['index'].str.replace('_SSC','')
+all_data['index']=all_data['index'].str.replace('_mTemp','')
 
-# merging bulkRNAseq metadata with CD33 genotype data
-bulkRNA.reset_index(inplace=True,drop=False)
-bulkRNA.set_index('index',inplace=True,drop=False)
-bulkRNA=bulkRNA.join(cd33)
-bulkRNA.set_index('Sample_ID',inplace=True,drop=False)
+# merging all_dataseq metadata with CD33 genotype data
+all_data.reset_index(inplace=True,drop=False)
+all_data.set_index('index',inplace=True,drop=False)
+all_data=all_data.join(cd33)
+all_data.set_index('Sample_ID',inplace=True,drop=False)
 
-bulkRNA=bulkRNA.join(counts)
+all_data=all_data.join(counts)
 
-bulkRNA['number_of_duplicates']=bulkRNA.groupby(['Sample_Name'])['Sample_Name'].transform('count')
+# creating new standardized sample names
+all_data['Sample_Name']= all_data['BrainBankNetworkID_normalized']+'_'+all_data['Brain region']
 
-bulkRNA['Sequencing_batch']=bulkRNA.groupby(['Sample_Name']).cumcount()+1
-bulkRNA['Sequencing_batch']=bulkRNA['Sequencing_batch'].astype(str)
-bulkRNA['Sequencing_batch']='S'+bulkRNA['Sequencing_batch']
-bulkRNA['Sample_Name']=bulkRNA['Sample_Name'].str.replace('_S1','')
-bulkRNA['Sample_Name']=bulkRNA['Sample_Name']+'_'+bulkRNA['Sequencing_batch']
+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Sample_Name']= \
+    all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'BrainBankNetworkID_normalized']+ \
+    '_'+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Brain region']+ \
+    '_'+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']
+
+all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original'].str.replace('-','_')
+all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']
+
+all_data['number_of_duplicates']=all_data.groupby(['Sample_Name'])['Sample_Name'].transform('count')
+
+all_data['Sequencing_batch']=all_data.groupby(['Sample_Name']).cumcount()+1
+all_data['Sequencing_batch']=all_data['Sequencing_batch'].round(decimals=0).astype(str)
+all_data['Sequencing_batch']=all_data['Sequencing_batch'].str.replace('.0','')
+all_data['Sequencing_batch']='S'+all_data['Sequencing_batch']
+all_data['Sample_Name']=all_data['Sample_Name']+'_'+all_data['Sequencing_batch']
 
 # creating new names for fastq files
-bulkRNA['New_name_R1']=bulkRNA['path_datatype']+ \
-    bulkRNA['Sample_Name']+'_L001_R1_001.fastq.gz'
-bulkRNA['New_name_R2']=bulkRNA['path_datatype']+ \
-    bulkRNA['Sample_Name']+'_L001_R2_001.fastq.gz'
-
-# to remove later
-bulkRNA=bulkRNA.loc[bulkRNA['number_of_duplicates']==2]
+all_data['New_name_R1']=all_data['path_datatype']+ \
+    all_data['Sample_Name']+'_L001_R1_001.fastq.gz'
+all_data['New_name_R2']=all_data['path_datatype']+ \
+    all_data['Sample_Name']+'_L001_R2_001.fastq.gz'
 
 # saving test metadata and paths to csv file
-bulkRNA.loc[bulkRNA['Study']=='TREM2'].to_csv('sampleInfo_bulkRNAseq_trem2_internal.csv')
-bulkRNA['BrainBankNetworkID']=bulkRNA['BrainBankNetworkID_original']
+all_data.loc[all_data['Study']=='TREM2'].to_csv('sampleInfo_all_dataseq_trem2_internal.csv')
+all_data.loc[all_data['Study']=='MAP'].to_csv('sampleInfo_all_dataseq_map_internal.csv')
+all_data.loc[all_data['Study']=='Tissue Quality Control'].to_csv('sampleInfo_all_dataseq_tissueQC_internal.csv')
+all_data['BrainBankNetworkID']=all_data['BrainBankNetworkID_original']
 
 # saving sample sheet and metadata to csv file
-bulkRNA.loc[bulkRNA['Study']=='MAP'][['Study', 'Study_ID','BrainBankNetworkID',
+all_data.loc[all_data['Study']=='MAP'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name']]. \
-                to_csv('MAP/samplesheet_bulkRNAseq.csv',index=False)
+                to_csv('MAP/samplesheet_MAP.csv',index=False)
 
-bulkRNA.loc[bulkRNA['Study']=='MAP'][['BrainBankNetworkID',
+all_data.loc[all_data['Study']=='MAP'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
                 'TREM2Variant','APOE',
                 'PostMortemDelayHours']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('MAP/donor_metadata.csv', index=False)
 
-bulkRNA.loc[bulkRNA['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
+all_data.loc[all_data['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name']]. \
-                to_csv('TREM2/samplesheet_bulkRNAseq.csv',index=False)
+                to_csv('TREM2/samplesheet_TREM2.csv',index=False)
 
-bulkRNA.loc[bulkRNA['Study']=='TREM2'][['BrainBankNetworkID',
+all_data.loc[all_data['Study']=='TREM2'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
                 'TREM2Variant','APOE','CD33',
                 'PostMortemDelayHours','CD33_group']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('TREM2/donor_metadata.csv', index=False)
 
-bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
+all_data.loc[all_data['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name']]. \
-                to_csv('TissueQC/samplesheet_bulkRNAseq.csv',index=False)
+                to_csv('TissueQC/samplesheet_TissueQC.csv',index=False)
 
-bulkRNA.loc[bulkRNA['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
+all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
                         'Brain region','Sample_Name']]. \
                 to_csv('TissueQC/donor_metadata.csv', index=False)
 
-bulkRNA[[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,'New_name_R1','New_name_R2']]. \
-    to_csv('paths_bulkRNAseq.csv',index=False,header=None)
+# select samples from a specific study
+all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
+all_data[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
 
-paths=open('paths_bulkRNAseq.csv','r')
-R1=open('paths_R1.csv','w+')
-R2=open('paths_R2.csv','w+')
+def write_paths(all_data,data_type):
 
-with open('paths_bulkRNAseq.csv','r') as paths:
-    for line in paths.readlines():
-        dic=line.split(',')
-        for i in dic:
-            if 'R1' in i:
-                R1.write(i+',')
-            elif 'R2' in i:
-                R2.write(i+',')
-        R1.write('\n')
+    all_data=all_data.loc[(all_data['data_type']==data_type)]
+                          
+    if data_type=='snRNAseq':
+        all_data=pd.concat([all_data[range(0,46)],all_data[['New_name_R1','New_name_R2']]],axis=1)
+        all_data. \
+        to_csv('paths_%s.csv' % (data_type),index=False,header=None)
+        
+        paths=open('paths_%s.csv' % (data_type),'r')
+        R1=open('paths_%s_R1.csv' % (data_type),'w+')
+        R2=open('paths_%s_R2.csv' % (data_type),'w+')
 
-R1.close()
-R2.close(),
+        with open('paths_%s.csv' % (data_type),'r') as paths:
+            for line in paths.readlines():
+                dic=line.split(',')
+                for i in dic:
+                    if ('R2' in i) & ('synapse_mirror' in i):
+                        R2.write(i)
+                    elif ('R1' in i) & ('synapse_mirror' in i):
+                        R1.write(i)
+                    elif 'R2' in i:
+                        R2.write(i+',')
+                    elif 'R1' in i:
+                        R1.write(i+',')
+                R1.write('\n')
 
-bulkRNA[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
+            R1.close()
+            R2.close()
+    else:
+        all_data=pd.concat([all_data[range(0,25)],all_data[['New_name_R1','New_name_R2']]],axis=1)
+        all_data. \
+        to_csv('paths_%s.csv' % (data_type),index=False,header=None)
 
-bulkRNA['New_name_R1']=bulkRNA['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-bulkRNA['New_name_R2']=bulkRNA['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-bulkRNA['New_name_R1']=bulkRNA['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-bulkRNA['New_name_R2']=bulkRNA['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-bulkRNA['New_name_R1']=bulkRNA['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-bulkRNA['New_name_R2']=bulkRNA['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+        paths=open('paths_%s.csv' % (data_type),'r')
+        R1=open('paths_%s_R1.csv' % (data_type),'w+')
+        R2=open('paths_%s_R2.csv' % (data_type),'w+')
 
-uploaded=pd.read_csv('uploaded.txt',sep='\s+')
-name2synapseid=pd.Series(uploaded.synapse_file_id.values,index=uploaded.filename).to_dict()
-bulkRNA['synapase_file_id_R1']=bulkRNA['New_name_R1'].map(name2synapseid)
-bulkRNA['synapase_file_id_R2']=bulkRNA['New_name_R2'].map(name2synapseid)
-bulkRNA[['synapase_file_id_R1','synapse_dir_id']].to_csv('synapse_file_id_R1.csv',index=False,header=None)
-bulkRNA[['synapase_file_id_R2','synapse_dir_id']].to_csv('synapse_file_id_R2.csv',index=False,header=None)
+        with open('paths_%s.csv' % (data_type),'r') as paths:
+            for line in paths.readlines():
+                dic=line.split(',')
+                for i in dic:
+                    if ('R2' in i) & ('synapse_mirror' in i):
+                        R2.write(i)
+                    elif ('R1' in i) & ('synapse_mirror' in i):
+                        R1.write(i)
+                    elif 'R2' in i:
+                        R2.write(i+',')
+                    elif 'R1' in i:
+                        R1.write(i+',')
+                R1.write('\n')
 
-all=set(pd.concat([bulkRNA['New_name_R1'],bulkRNA['New_name_R2']],axis=0).to_list())
-uploaded=set(uploaded.filename.to_list())
-missing=all.difference(uploaded)
-print(missing)
+            R1.close()
+            R2.close()
+    
+    
+"""
+    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
+    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
+    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
+    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
+
+    uploaded=pd.read_csv('uploaded.txt',sep='\s+')
+    name2synapseid=pd.Series(uploaded.synapse_file_id.values,index=uploaded.filename).to_dict()
+    all_data['synapase_file_id_R1']=all_data['New_name_R1'].map(name2synapseid)
+    all_data['synapase_file_id_R2']=all_data['New_name_R2'].map(name2synapseid)
+    all_data[['synapase_file_id_R1','synapse_dir_id']].to_csv('synapse_file_id_R1.csv',index=False,header=None)
+    all_data[['synapase_file_id_R2','synapse_dir_id']].to_csv('synapse_file_id_R2.csv',index=False,header=None)
+
+    all=set(pd.concat([all_data['New_name_R1'],all_data['New_name_R2']],axis=0).to_list())
+    uploaded=set(uploaded.filename.to_list())
+    missing=all.difference(uploaded)
+    """
+write_paths(all_data,'bulkRNAseq')
+write_paths(all_data,'snRNAseq')

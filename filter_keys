@@ -1,0 +1,17 @@
+import glob
+
+IGFQ000852_files=glob.glob('keys/IGFQ000883*')
+j=110
+for i in IGFQ000852_files:
+    new_key=open('keys/key_'+str(j)+'.csv','w+')
+    write=False
+    with open(i) as f:
+        for line in f:
+            if ('Lane' in line):
+                new_key.write(line)
+                write=True
+            elif (write):
+                new_key.write(line)
+        new_key.close()
+        j+=1
+

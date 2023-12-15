@@ -1,0 +1,32 @@
+[Header]
+IEMFileVersion,4,,,,,,,,,
+Investigator Name,Ben,,,,,,,,,
+Experiment Name,rutter_21-9-2021_mRNA,,,,,,,,,
+Date,17/11/2021,,,,,,,,,
+Workflow,GenerateFASTQ,,,,,,,,,
+Application,HiSeq FASTQ Only,,,,,,,,,
+Assay,TruSeq HT,,,,,,,,,
+Description,,,, ,,,,,,
+Chemistry,Amplicon,,,,,,,,,
+,,,,,,,,,,
+[Reads]
+76,,,,,,,,,,
+76,,,,,,,,,,
+,,,,,,,,,,
+[Settings]
+,,,,,,,,,,
+[Data]
+Lane,Sample_ID,Sample_Name,Sample_Plate,Sample_Well,I7_Index_ID,index,I5_Index_ID,index2,Sample_Project,Description
+1,IGF119489,RSMG1-2,,,S762,TTACCGAC,S512,CGTATTCG,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119496,RSMG2-3,,,S794,TACTCCAG,S590,CCTATACC,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119504,RSMG3-1,,,S708,GGAAGAGA,S521,TTCTCTCG,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119510,RSMG4-1,,,S710,CTCAGAAG,S581,AACTTGCC,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119520,RSMG5-7,,,S773,ATCTGACC,S593,AAGTCGAG,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119521,RSMG6-1,,,S769,TCCTCATG,S519,AGGTGTAC,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119537,RSMG9-2,,,S712,CGAATACG,S562,GTCGGTAA,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119538,RSMG9-4,,,S786,GTCCTTGA,S513,TCAGACGA,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119541,RSMG9-3,,,S750,GTCGATTG,S532,ACGGTCTT,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119575,RSMG14-5,,,S741,GGTTGAAC,S584,AACGTGGA,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119579,RSMG15-6,,,S787,GGAATGTC,S588,GTGTTCCT,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119584,RSMG16-2,,,S733,CCACAACA,S561,TGTGGTAC,IGFQ001254_matthews_19-8-2021_ribodepletion,
+1,IGF119594,RSMG17-6,,,S777,AGCCTATC,S526,GTTACGCA,IGFQ001254_matthews_19-8-2021_ribodepletion,

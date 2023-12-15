@@ -1,0 +1,21 @@
+[Header]
+IEMFileVersion,4,,,,,,,,,
+Investigator Name,Ben,,,,,,,,,
+Experiment Name,matthews_19-8-2021_ribodepletion,,,,,,,,,
+Date,16/10/2021,,,,,,,,,
+Workflow,GenerateFASTQ,,,,,,,,,
+Application,HiSeq FASTQ Only,,,,,,,,,
+Assay,TruSeq HT,,,,,,,,,
+Description,,,, ,,,,,,
+Chemistry,Amplicon,,,,,,,,,
+,,,,,,,,,,
+[Reads]
+76,,,,,,,,,,
+76,,,,,,,,,,
+,,,,,,,,,,
+[Settings]
+,,,,,,,,,,
+[Data]
+Lane,Sample_ID,Sample_Name,Sample_Plate,Sample_Well,I7_Index_ID,index,I5_Index_ID,index2,Sample_Project,Description
+6,IGF119586,RSMG16-4,,,S713,TCGTCTGA,S586,TCAAGGAC,IGFQ001254_matthews_19-8-2021_ribodepletion,
+6,IGF119595,RSMG17-1,,,S772,TCATCTCC,S567,CTAGCAAG,IGFQ001254_matthews_19-8-2021_ribodepletion,
