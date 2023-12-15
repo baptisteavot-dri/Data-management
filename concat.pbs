@@ -7,5 +7,5 @@
 
 cd /rds/general/user/bavot/home/data_management
 module load parallel/default
-# parallel --will-cite -j 50 --colsep ',' bash concat.sh {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: paths_R1.csv
-parallel --will-cite -j 50 --colsep ',' bash concat.sh {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: paths_R2.csv
+cat paths_snRNAseq_R1.csv | parallel -j 50 --will-cite bash concat_smarter.sh {} 
+cat paths_snRNAseq_R2.csv | parallel -j 50 --will-cite bash concat_smarter.sh {} 

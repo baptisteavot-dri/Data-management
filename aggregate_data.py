@@ -273,6 +273,12 @@ all_data['New_name_R1']=all_data['path_datatype']+ \
 all_data['New_name_R2']=all_data['path_datatype']+ \
     all_data['Sample_Name']+'_L001_R2_001.fastq.gz'
 
+all_data.to_csv('all_dataseq.csv')
+
+all_data_duplicates = all_data[all_data.duplicated(['BrainBankNetworkID_original','Brain region','Study_ID'])]
+all_data_duplicates=all_data_duplicates.loc[all_data_duplicates['data_type']=='bulkRNAseq']
+all_data_duplicates.to_csv('duplicates.csv')
+
 # saving test metadata and paths to csv file
 all_data.loc[all_data['Study']=='TREM2'].to_csv('sampleInfo_all_dataseq_trem2_internal.csv')
 all_data.loc[all_data['Study']=='MAP'].to_csv('sampleInfo_all_dataseq_map_internal.csv')
@@ -311,7 +317,7 @@ all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
                 to_csv('TissueQC/donor_metadata.csv', index=False)
 
 # select samples from a specific study
-all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
+# all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
 all_data[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
 
 def write_paths(all_data,data_type):
@@ -369,25 +375,25 @@ def write_paths(all_data,data_type):
             R1.close()
             R2.close()
     
-    
-"""
-    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
-    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
-    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
-    all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
-    all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/all_dataseq_cortical_tissue/Raw_FASTQ/','')
-
-    uploaded=pd.read_csv('uploaded.txt',sep='\s+')
-    name2synapseid=pd.Series(uploaded.synapse_file_id.values,index=uploaded.filename).to_dict()
-    all_data['synapase_file_id_R1']=all_data['New_name_R1'].map(name2synapseid)
-    all_data['synapase_file_id_R2']=all_data['New_name_R2'].map(name2synapseid)
-    all_data[['synapase_file_id_R1','synapse_dir_id']].to_csv('synapse_file_id_R1.csv',index=False,header=None)
-    all_data[['synapase_file_id_R2','synapse_dir_id']].to_csv('synapse_file_id_R2.csv',index=False,header=None)
-
-    all=set(pd.concat([all_data['New_name_R1'],all_data['New_name_R2']],axis=0).to_list())
-    uploaded=set(uploaded.filename.to_list())
-    missing=all.difference(uploaded)
-    """
 write_paths(all_data,'bulkRNAseq')
 write_paths(all_data,'snRNAseq')
+
+all_data=all_data.loc[(all_data['data_type']=='bulkRNAseq')]
+all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
+
+uploaded=pd.read_csv('uploaded.txt',sep='\s+')
+name2synapseid=pd.Series(uploaded.synapse_file_id.values,index=uploaded.filename).to_dict()
+all_data['synapase_file_id_R1']=all_data['New_name_R1'].map(name2synapseid)
+all_data['synapase_file_id_R2']=all_data['New_name_R2'].map(name2synapseid)
+all_data[['synapase_file_id_R1','synapse_dir_id']].to_csv('synapse_file_id_R1.csv',index=False,header=None)
+all_data[['synapase_file_id_R2','synapse_dir_id']].to_csv('synapse_file_id_R2.csv',index=False,header=None)
+
+all=set(pd.concat([all_data['New_name_R1'],all_data['New_name_R2']],axis=0).to_list())
+uploaded=set(uploaded.filename.to_list())
+missing=all.difference(uploaded)
+print(missing)
