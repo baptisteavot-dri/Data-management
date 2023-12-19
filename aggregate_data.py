@@ -186,6 +186,7 @@ all_data['Study_ID']=all_data[0].str.extract(r'(IGFQ[0-9]{6})')
 # bringing study ID to the first column
 all_data.insert(0,'Study_ID',all_data.pop('Study_ID'))
 
+# creating dictionary with study ID mapped to data type
 studyid2datatype={'IGFQ000852':'snRNAseq','IGFQ000883':'snRNAseq',
                   'IGFQ000949':'bulkRNAseq','IGFQ000955':'snRNAseq',
                   'IGFQ001110':'snRNAseq','IGFQ001167':'bulkRNAseq',
@@ -200,9 +201,14 @@ studyid2enrichment={'IGFQ000852':'GEN','IGFQ000883':'UNS',
                     'IGFQ000955':'UNS','IGFQ001110':'UNS',
                     'IGFQ001346':'GEN'}
 
+# adding data type column
 all_data['data_type']=all_data['Study_ID'].map(studyid2datatype)
+
+# add enrichment information for specific samples
 all_data.loc[ all_data["Enrichment"].isnull(),'Enrichment'] = all_data.loc[all_data["Enrichment"].isnull(),"Study_ID"].map(studyid2enrichment)
 
+
+# creating dictionary with target directory mapped to data type and project
 pathdatatype={'snRNAseq_UNS_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/snRNAseq_cortical_tissue/TotalPopulation/Raw_FASTQ/',
               'snRNAseq_GEN_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/snRNAseq_cortical_tissue/GliaEnriched/Raw_FASTQ/',
               'bulkRNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
@@ -212,6 +218,7 @@ pathdatatype={'snRNAseq_UNS_TREM2':'/rds/general/project/ukdrmultiomicsproject/l
               'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/'
               }
 
+# creating dictionary with synapse directory ID mapped to data type and project
 pathsynapse={'snRNAseq_UNS_TREM2':'syn53165789',
              'snRNAseq_GEN_TREM2':'syn53165787',
               'bulkRNAseq_TREM2':'syn52943643',
@@ -222,11 +229,17 @@ pathsynapse={'snRNAseq_UNS_TREM2':'syn53165789',
               }
 
 all_data['data_type_project']=all_data['data_type']+'_'+all_data['Study']
+
+# dealing specifically with snRNAseq sample names from the TREM2 study
 all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'), 'data_type_project']= \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'data_type']+'_'+ \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']+'_'+ \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Study']
+
+# mapping target directory with data type and project
 all_data['path_datatype']=all_data['data_type_project'].map(pathdatatype)
+
+# mapping synapse directory ID with data type and project
 all_data['synapse_dir_id']=all_data['data_type_project'].map(pathsynapse)
 
 # import CD33 genotype data
@@ -236,17 +249,27 @@ cd33.set_index('individual',inplace=True)
 
 # import RIN data
 bulkrna=pd.read_csv('BulkRNA.csv')
+
+# normalizing caseID that will be used for merging
 bulkrna['CaseID']=bulkrna['CaseID'].str.replace('-','_')
 bulkrna['CaseID']=bulkrna['CaseID'].str.replace('/','_')
 bulkrna['CaseID']=bulkrna['CaseID'].str.replace('*','')
+
+# setting index for merging
 bulkrna.set_index('CaseID',inplace=True)
 
 # import TissueQC metadata
 tissueqc=pd.read_csv('TQC_metadata.csv', encoding='unicode_escape')
+
+# keeping only samples from McGill and Netherlands
 tissueqc=tissueqc.loc[(tissueqc['Brain_Bank']=='Netherlands') | (tissueqc['Brain_Bank']=='McGill')]
+
+# normalizing caseID that will be used for merging
 tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('-','_')
 tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('/','_')
 tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('*','')
+
+# setting index for merging
 tissueqc.set_index('Case_ID',inplace=True)
 
 # formatting sample names for merging
@@ -266,6 +289,7 @@ all_data.set_index('CaseID (normalized)',inplace=True,drop=False)
 all_data=all_data.join(bulkrna[['RIN','NanodropRNAConcentration_ng_ul']])
 all_data=all_data.join(tissueqc[['Storage_Temp','Time_Delay']])
 
+# merging all_data with counts data
 all_data.set_index('Sample_ID',inplace=True,drop=False)
 all_data=all_data.join(counts)
 all_data.drop_duplicates('Sample_ID',inplace=True)
@@ -273,16 +297,20 @@ all_data.drop_duplicates('Sample_ID',inplace=True)
 # creating new standardized sample names
 all_data['Sample_Name']= all_data['BrainBankNetworkID_normalized']+'_'+all_data['Brain region']
 
+# dealing specifically with snRNAseq sample names from the TREM2 study
 all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Sample_Name']= \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'BrainBankNetworkID_normalized']+ \
     '_'+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Brain region']+ \
     '_'+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']
 
+# dealing specifically with samples from IGFQ001254 sequencing project
 all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original'].str.replace('-','_')
 all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']
 
+# adding a column with the number of files for specific sample
 all_data['number_of_duplicates']=all_data.groupby(['Sample_Name'])['Sample_Name'].transform('count')
 
+# adding sequencing batch number to sample name
 all_data['Sequencing_batch']=all_data.groupby(['Sample_Name']).cumcount()+1
 all_data['Sequencing_batch']=all_data['Sequencing_batch'].round(decimals=0).astype(str)
 all_data['Sequencing_batch']=all_data['Sequencing_batch'].str.replace('.0','')
@@ -295,23 +323,24 @@ all_data['New_name_R1']=all_data['path_datatype']+ \
 all_data['New_name_R2']=all_data['path_datatype']+ \
     all_data['Sample_Name']+'_L001_R2_001.fastq.gz'
 
-all_data.to_csv('all_dataseq.csv')
 
+# extracting duplicate samples
 all_data_duplicates = all_data[all_data.duplicated(['BrainBankNetworkID_original','Brain region','Study_ID'])]
 all_data_duplicates=all_data_duplicates.loc[all_data_duplicates['data_type']=='bulkRNAseq']
 all_data_duplicates.to_csv('duplicates.csv')
 
-# saving test metadata and paths to csv file
+# saving all metadata and paths to csv file
 all_data.loc[all_data['Study']=='TREM2'].to_csv('sampleInfo_all_dataseq_trem2_internal.csv', index=False)
 all_data.loc[all_data['Study']=='MAP'].to_csv('sampleInfo_all_dataseq_map_internal.csv', index=False)
 all_data.loc[all_data['Study']=='Tissue Quality Control'].to_csv('sampleInfo_all_dataseq_tissueQC_internal.csv', index=False)
 all_data['BrainBankNetworkID']=all_data['BrainBankNetworkID_original']
 
-# saving sample sheet and metadata to csv file
+# saving sample sheet to csv file
 all_data.loc[all_data['Study']=='MAP'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name','data_type']]. \
                 to_csv('MAP/samplesheet_MAP.csv',index=False)
 
+# writing MAP metadata to csv file
 all_data.loc[all_data['Study']=='MAP'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
@@ -319,10 +348,12 @@ all_data.loc[all_data['Study']=='MAP'][['BrainBankNetworkID',
                 'PostMortemDelayHours','RIN']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('MAP/donor_metadata.csv', index=False)
 
+# writing TREM2 sample sheet to csv file
 all_data.loc[all_data['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name','data_type']]. \
                 to_csv('TREM2/samplesheet_TREM2.csv',index=False)
 
+# writing TREM2 metadata to csv file
 all_data.loc[all_data['Study']=='TREM2'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
@@ -330,10 +361,12 @@ all_data.loc[all_data['Study']=='TREM2'][['BrainBankNetworkID',
                 'PostMortemDelayHours','CD33_group','RIN']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('TREM2/donor_metadata.csv', index=False)
 
+# writing TissueQC sample sheet to csv file
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
         'Brain region','Sample_Name','data_type']]. \
                 to_csv('TissueQC/samplesheet_TissueQC.csv',index=False)
 
+# writing TissueQC metadata to csv file
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
                         'Brain region','Sample_Name','Storage_Temp','Time_Delay']]. \
                         drop_duplicates('BrainBankNetworkID'). \
@@ -343,8 +376,10 @@ all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
 all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
 all_data[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
 
+# function that write the paths of the files to concatenate in a csv file
 def write_paths(all_data,data_type):
 
+    # selecting only samples from a specific data type
     all_data=all_data.loc[(all_data['data_type']==data_type)]
                           
     if data_type=='snRNAseq':
@@ -377,10 +412,12 @@ def write_paths(all_data,data_type):
         all_data. \
         to_csv('paths_%s.csv' % (data_type),index=False,header=None)
 
+        # opening csv file for both R1 and R2
         paths=open('paths_%s.csv' % (data_type),'r')
         R1=open('paths_%s_R1.csv' % (data_type),'w+')
         R2=open('paths_%s_R2.csv' % (data_type),'w+')
 
+        # writing paths for R1 and R2 in separate files
         with open('paths_%s.csv' % (data_type),'r') as paths:
             for line in paths.readlines():
                 dic=line.split(',')
