@@ -1,152 +1,169 @@
-"","Sample_ID","BBN_ID","Case_ID","Brain_Bank","Tissue_Type","Brain_Region","Age","Sex","PostMortemDelayHours","RIN","Storage_Temp","Time_Delay","Study_Origin","Sequencing_Batch","Aligned_reads"
-"1","IGF123494","S17/109","2017-109","Netherlands","Post_Mortem","ITG",91,"M",0.212,7.9,NA,NA,"Tissue Quality Control",1,66028665
-"3","IGF123498","BBN_18407","SD046_13","Edinburgh","Post_Mortem","MTG",62,"M",41,6.4,NA,NA,"MAP",1,59888834
-"4","IGF123499","S17/016","2017-016","Netherlands","Post_Mortem","ITG",72,"M",0.181,6.7,NA,NA,"Tissue Quality Control",1,56138960
-"5","IGF123500","BBN002.32628","A080/18","Kings","Post_Mortem","MTG",93,"M",26,6.3,NA,NA,"MAP",1,52231143
-"6","IGF123504","BBN006.36102","1190","Bristol","Post_Mortem","MTG",75,"M",46.5,5,NA,NA,"MAP",1,61379485
-"7","IGF123506","S17/093","2017-093","Netherlands","Post_Mortem","ITG",82,"M",0.24,7.6,NA,NA,"Tissue Quality Control",1,41266161
-"8","IGF123509","BBN_22612","SD022_14","Edinburgh","Post_Mortem","MTG",61,"M",70,5.1,NA,NA,"MAP",1,50783804
-"10","IGF123512","S18/123","2018-123","Netherlands","Post_Mortem","ITG",82,"F",0.264,5.8,NA,NA,"Tissue Quality Control",1,46659581
-"11","IGF123513","S15/033","2015-033","Netherlands","Post_Mortem","ITG",93,"M",0.319,7.1,NA,NA,"Tissue Quality Control",1,60696220
-"12","IGF123519","BBN006.36107","1191","Bristol","Post_Mortem","MTG",92,"F",71,6.2,NA,NA,"MAP",1,57368868
-"13","IGF123523","S17/005","2017-005","Netherlands","Post_Mortem","ITG",60,"F",0.229,7.9,NA,NA,"Tissue Quality Control",1,64556805
-"14","IGF123525","BBN_24243","A250/14","Kings","Post_Mortem","MTG",69,"F",48,5.9,NA,NA,"MAP",1,63983760
-"15","IGF123531","S18/112","2018-112","Netherlands","Post_Mortem","ITG",95,"F",0.181,6.9,NA,NA,"Tissue Quality Control",1,104502590
-"16","IGF123537","S18/030","2018-030","Netherlands","Post_Mortem","ITG",102,"F",0.215,7.8,NA,NA,"Tissue Quality Control",1,56805925
-"18","IGF123547","BBN002.32844","A141/18","Kings","Post_Mortem","MTG",81,"F",42,4.8,NA,NA,"MAP",1,55000825
-"19","IGF123549","BBN002.28858","A237/16","Kings","Post_Mortem","MTG",80,"M",58,5.8,NA,NA,"MAP",1,51158856
-"20","IGF123550","S15/027","2015-027","Netherlands","Post_Mortem","ITG",76,"F",0.198,5.1,NA,NA,"Tissue Quality Control",1,65622054
-"21","IGF123554","BBN006.36170","1194","Bristol","Post_Mortem","MTG",87,"F",29.5,4.6,NA,NA,"MAP",1,51151446
-"23","IGF123556","S15/074","2015-074","Netherlands","Post_Mortem","ITG",89,"F",0.542,7,NA,NA,"Tissue Quality Control",1,70054877
-"24","IGF117757","BBN_15230","NP13-012","Oxford ","Post_Mortem","MTG",60,"F",48,6.7,NA,NA,"TREM2",2,49033831
-"25","IGF117764","BBN_16213","A127-11","Kings","Post_Mortem","MTG",73,"M",23,4.6,NA,NA,"TREM2",2,57607231
-"26","IGF117772","BBN_7519","20100742","Newcastle","Post_Mortem","MTG",67,"M",22,7.5,NA,NA,"TREM2",2,49703078
-"27","IGF117779","BBN005.29520","DPM16-44","Manchester","Post_Mortem","MTG",94,"M",36.5,4.3,NA,NA,"TREM2",2,58729672
-"28","IGF117782","BBN_11449","C19-93","UCL","Post_Mortem","MTG",82,"M",33,7.5,NA,NA,"TREM2",2,53542146
-"29","IGF117787","BBN_11804","P23-07","UCL","Post_Mortem","MTG",76,"M",39.5,7.8,NA,NA,"TREM2",2,54584414
-"30","IGF117823","BBN_21005","A051-14","Kings","Post_Mortem","MTG",76,"F",22,6.5,NA,NA,"TREM2",2,96540725
-"31","IGF117824","BBN_18399","A053-11","Kings","Post_Mortem","MTG",77,"M",11,7,NA,NA,"TREM2",2,54568463
-"36","IGF117836",NA,"PDC016","Imperial","Post_Mortem","MTG",91,"F",22,7,NA,NA,"TREM2",2,46411181
-"37","IGF117837",NA,"PDC026","Imperial","Post_Mortem","MTG",80,"F",23,5,NA,NA,"TREM2",2,68695407
-"39","IGF122097","BBN_2414","SD030/07","Edinburgh","Post_Mortem","MTG",39,"M",71,6.9,NA,NA,"TREM2",3,42044719
-"40","IGF122099","BBN_7545","20110272","Newcastle","Post_Mortem","MTG",78,"F",34,4.8,NA,NA,"TREM2",3,49085968
-"41","IGF122100","BBN_7403","20060093","Newcastle","Post_Mortem","MTG",78,"F",23,5.4,NA,NA,"TREM2",3,57362398
-"42","IGF122109","BBN003.28342","20152915","Newcastle","Post_Mortem","MTG",84,"M",45,6,NA,NA,"TREM2",3,48228856
-"43","IGF122110","BBN003.32295","19980098","Newcastle","Post_Mortem","MTG",75,"F",27,5,NA,NA,"TREM2",3,40362353
-"45","IGF122119","BBN_14801","20130400","Newcastle","Post_Mortem","MTG",65,"F",47,5.3,NA,NA,"TREM2",3,38129266
-"46","IGF122132","BBN_15304","A301/10","Kings","Post_Mortem","MTG",80,"M",45,5.1,NA,NA,"TREM2",3,48257809
-"47","IGF122137","BBN_7404","20060099","Newcastle","Post_Mortem","MTG",89,"F",24,6.1,NA,NA,"TREM2",3,38875841
-"48","IGF122144","BBN_7115","20050102","Newcastle","Post_Mortem","MTG",72,"M",17,6.3,NA,NA,"TREM2",3,38867936
-"49","IGF122173","BBN003.35446","20196919","Newcastle","Post_Mortem","MTG",82,"F",42,5.3,NA,NA,"TREM2",3,37737486
-"50","IGF122184","BBN003.34161","20185945","Newcastle","Post_Mortem","MTG",87,"M",46,5.7,NA,NA,"TREM2",3,64732285
-"51","IGF122188","BBN003.32261","19960064","Newcastle","Post_Mortem","MTG",72,"F",28,6.6,NA,NA,"TREM2",3,46766646
-"52","IGF122191","BBN003.26951","20150975","Newcastle","Post_Mortem","MTG",79,"M",39,6.6,NA,NA,"TREM2",3,70434808
-"53","IGF122196"," BBN_5650","NP11/114 ","Oxford ","Post_Mortem","MTG",57,"M",48,5.3,NA,NA,"TREM2",3,49157364
-"55","IGF122211","BBN_6122","20000034","Newcastle","Post_Mortem","MTG",70,"M",119,7.4,NA,NA,"TREM2",3,41705661
-"56","IGF122213"," BBN_11055","NP12/098 ","Oxford ","Post_Mortem","MTG",68,"M",33,6.2,NA,NA,"TREM2",3,52364364
-"57","IGF122220","BBN_24279","20141901","Newcastle","Post_Mortem","MTG",80,"F",25,7.2,NA,NA,"TREM2",3,54235990
-"58","IGF122241","BBN_7554","20110476","Newcastle","Post_Mortem","MTG",65,"M",22,4.6,NA,NA,"TREM2",3,60959299
-"59","RSMG1_1","RSMG1_1","RSMG1","McGill","Resected",NA,39,"F",NA,4.7,4,36,"Tissue Quality Control",4,48951388
-"62","RSMG1_4","RSMG1_4","RSMG1","McGill","Resected",NA,39,"F",NA,4.8,4,6,"Tissue Quality Control",4,61063348
-"63","RSMG1_5","RSMG1_5","RSMG1","McGill","Resected",NA,39,"F",NA,4.2,20,6,"Tissue Quality Control",4,52225048
-"64","RSMG1_6","RSMG1_6","RSMG1","McGill","Resected",NA,39,"F",NA,5.5,-80,0,"Tissue Quality Control",4,49496182
-"65","RSMG10_1","RSMG10_1","RSMG10","McGill","Resected",NA,57,"M",NA,1.7,4,36,"Tissue Quality Control",4,51278511
-"66","RSMG10_2","RSMG10_2","RSMG10","McGill","Resected",NA,57,"M",NA,2.2,20,36,"Tissue Quality Control",4,60247996
-"67","RSMG10_3","RSMG10_3","RSMG10","McGill","Resected",NA,57,"M",NA,3.8,4,24,"Tissue Quality Control",4,50448533
-"68","RSMG10_4","RSMG10_4","RSMG10","McGill","Resected",NA,57,"M",NA,2.1,4,6,"Tissue Quality Control",4,76760771
-"69","RSMG10_5","RSMG10_5","RSMG10","McGill","Resected",NA,57,"M",NA,3.2,20,6,"Tissue Quality Control",4,43882511
-"70","RSMG10_6","RSMG10_6","RSMG10","McGill","Resected",NA,57,"M",NA,5.9,-80,0,"Tissue Quality Control",4,90748013
-"71","RSMG11_1","RSMG11_1","RSMG11","McGill","Resected",NA,54,"M",NA,4,4,36,"Tissue Quality Control",4,48026317
-"72","RSMG11_2","RSMG11_2","RSMG11","McGill","Resected",NA,54,"M",NA,3.8,20,36,"Tissue Quality Control",4,56647142
-"73","RSMG11_3","RSMG11_3","RSMG11","McGill","Resected",NA,54,"M",NA,3.9,4,24,"Tissue Quality Control",4,43971531
-"74","RSMG11_4","RSMG11_4","RSMG11","McGill","Resected",NA,54,"M",NA,5,4,6,"Tissue Quality Control",4,89155989
-"75","RSMG11_5","RSMG11_5","RSMG11","McGill","Resected",NA,54,"M",NA,2.6,20,6,"Tissue Quality Control",4,65878162
-"76","RSMG11_6","RSMG11_6","RSMG11","McGill","Resected",NA,54,"M",NA,5.6,-80,0,"Tissue Quality Control",4,91668973
-"77","RSMG12_1","RSMG12_1","RSMG12","McGill","Resected",NA,72,"M",NA,4.4,4,36,"Tissue Quality Control",4,51650086
-"78","RSMG12_2","RSMG12_2","RSMG12","McGill","Resected",NA,72,"M",NA,4.5,20,36,"Tissue Quality Control",4,47494193
-"79","RSMG12_3","RSMG12_3","RSMG12","McGill","Resected",NA,72,"M",NA,4,4,24,"Tissue Quality Control",4,43075583
-"80","RSMG12_4","RSMG12_4","RSMG12","McGill","Resected",NA,72,"M",NA,2.6,20,24,"Tissue Quality Control",4,70145384
-"81","RSMG12_5","RSMG12_5","RSMG12","McGill","Resected",NA,72,"M",NA,4.6,4,6,"Tissue Quality Control",4,59697144
-"82","RSMG12_6","RSMG12_6","RSMG12","McGill","Resected",NA,72,"M",NA,4.3,20,6,"Tissue Quality Control",4,49912537
-"83","RSMG12_7","RSMG12_7","RSMG12","McGill","Resected",NA,72,"M",NA,4.6,-80,0,"Tissue Quality Control",4,60040851
-"84","RSMG12_8","RSMG12_8","RSMG12","McGill","Resected",NA,72,"M",NA,4.3,-80,0,"Tissue Quality Control",4,66186567
-"85","RSMG13_1","RSMG13_1","RSMG13","McGill","Resected",NA,50,"F",NA,4.5,4,36,"Tissue Quality Control",4,56952592
-"87","RSMG13_3","RSMG13_3","RSMG13","McGill","Resected",NA,50,"F",NA,7.2,20,24,"Tissue Quality Control",4,60447458
-"88","RSMG13_4","RSMG13_4","RSMG13","McGill","Resected",NA,50,"F",NA,4.7,4,6,"Tissue Quality Control",4,51009297
-"89","RSMG13_5","RSMG13_5","RSMG13","McGill","Resected",NA,50,"F",NA,4.2,20,6,"Tissue Quality Control",4,53871393
-"90","RSMG13_6","RSMG13_6","RSMG13","McGill","Resected",NA,50,"F",NA,5,-80,0,"Tissue Quality Control",4,63879263
-"91","RSMG14_1","RSMG14_1","RSMG14","McGill","Resected",NA,42,"M",NA,4.4,4,36,"Tissue Quality Control",4,77523823
-"92","RSMG14_2","RSMG14_2","RSMG14","McGill","Resected",NA,42,"M",NA,3.8,20,36,"Tissue Quality Control",4,47495095
-"93","RSMG14_3","RSMG14_3","RSMG14","McGill","Resected",NA,42,"M",NA,4.8,4,24,"Tissue Quality Control",4,77689512
-"94","RSMG14_4","RSMG14_4","RSMG14","McGill","Resected",NA,42,"M",NA,4.1,20,24,"Tissue Quality Control",4,52838149
-"95","RSMG14_5","RSMG14_5","RSMG14","McGill","Resected",NA,42,"M",NA,4.9,4,6,"Tissue Quality Control",4,52974094
-"96","RSMG14_6","RSMG14_6","RSMG14","McGill","Resected",NA,42,"M",NA,5.3,20,6,"Tissue Quality Control",4,67601379
-"97","RSMG14_7","RSMG14_7","RSMG14","McGill","Resected",NA,42,"M",NA,4,-80,0,"Tissue Quality Control",4,66410490
-"98","RSMG14_8","RSMG14_8","RSMG14","McGill","Resected",NA,42,"M",NA,4.6,-80,0,"Tissue Quality Control",4,47803374
-"99","RSMG15_1","RSMG15_1","RSMG15","McGill","Resected",NA,52,"F",NA,3.4,4,36,"Tissue Quality Control",4,58595366
-"101","RSMG15_3","RSMG15_3","RSMG15","McGill","Resected",NA,52,"F",NA,3.6,4,24,"Tissue Quality Control",4,46515081
-"102","RSMG15_4","RSMG15_4","RSMG15","McGill","Resected",NA,52,"F",NA,2.7,20,24,"Tissue Quality Control",4,39914519
-"103","RSMG15_5","RSMG15_5","RSMG15","McGill","Resected",NA,52,"F",NA,4.4,4,6,"Tissue Quality Control",4,50880557
-"104","RSMG15_6","RSMG15_6","RSMG15","McGill","Resected",NA,52,"F",NA,3.6,20,6,"Tissue Quality Control",4,45292094
-"105","RSMG15_7","RSMG15_7","RSMG15","McGill","Resected",NA,52,"F",NA,3.7,-80,0,"Tissue Quality Control",4,87669898
-"106","RSMG16_1","RSMG16_1","RSMG16","McGill","Resected",NA,63,"M",NA,3.9,4,36,"Tissue Quality Control",4,47483008
-"107","RSMG16_2","RSMG16_2","RSMG16","McGill","Resected",NA,63,"M",NA,3.8,20,36,"Tissue Quality Control",4,44526511
-"108","RSMG16_3","RSMG16_3","RSMG16","McGill","Resected",NA,63,"M",NA,3.7,4,24,"Tissue Quality Control",4,58814337
-"109","RSMG16_4","RSMG16_4","RSMG16","McGill","Resected",NA,63,"M",NA,2.6,20,24,"Tissue Quality Control",4,53816617
-"110","RSMG16_5","RSMG16_5","RSMG16","McGill","Resected",NA,63,"M",NA,4.7,4,6,"Tissue Quality Control",4,65907272
-"111","RSMG16_6","RSMG16_6","RSMG16","McGill","Resected",NA,63,"M",NA,4.1,20,6,"Tissue Quality Control",4,49532416
-"112","RSMG16_7","RSMG16_7","RSMG16","McGill","Resected",NA,63,"M",NA,4.7,-80,0,"Tissue Quality Control",4,51154540
-"113","RSMG17_1","RSMG17_1","RSMG17","McGill","Resected",NA,63,"M",NA,4,4,36,"Tissue Quality Control",4,66749921
-"114","RSMG17_2","RSMG17_2","RSMG17","McGill","Resected",NA,63,"M",NA,2.3,20,36,"Tissue Quality Control",4,40464131
-"115","RSMG17_3","RSMG17_3","RSMG17","McGill","Resected",NA,63,"M",NA,4.2,4,24,"Tissue Quality Control",4,53231137
-"116","RSMG17_4","RSMG17_4","RSMG17","McGill","Resected",NA,63,"M",NA,2.5,20,24,"Tissue Quality Control",4,42543790
-"117","RSMG17_5","RSMG17_5","RSMG17","McGill","Resected",NA,63,"M",NA,4.3,4,6,"Tissue Quality Control",4,64051436
-"118","RSMG17_6","RSMG17_6","RSMG17","McGill","Resected",NA,63,"M",NA,4.6,20,6,"Tissue Quality Control",4,158396887
-"119","RSMG17_7","RSMG17_7","RSMG17","McGill","Resected",NA,63,"M",NA,4.1,-80,0,"Tissue Quality Control",4,71471144
-"121","RSMG2_2","RSMG2_2","RSMG2","McGill","Resected",NA,57,"M",NA,2.6,20,36,"Tissue Quality Control",4,49315682
-"122","RSMG2_3","RSMG2_3","RSMG2","McGill","Resected",NA,57,"M",NA,2.1,20,24,"Tissue Quality Control",4,37630522
-"123","RSMG2_4","RSMG2_4","RSMG2","McGill","Resected",NA,57,"M",NA,4.8,4,6,"Tissue Quality Control",4,44689518
-"124","RSMG2_5","RSMG2_5","RSMG2","McGill","Resected",NA,57,"M",NA,3.9,20,6,"Tissue Quality Control",4,44711967
-"125","RSMG2_6","RSMG2_6","RSMG2","McGill","Resected",NA,57,"M",NA,4.5,-80,0,"Tissue Quality Control",4,45462230
-"126","RSMG3_1","RSMG3_1","RSMG3","McGill","Resected",NA,55,"F",NA,3.4,4,36,"Tissue Quality Control",4,48839465
-"128","RSMG3_3","RSMG3_3","RSMG3","McGill","Resected",NA,55,"F",NA,2.5,20,24,"Tissue Quality Control",4,48158369
-"129","RSMG3_4","RSMG3_4","RSMG3","McGill","Resected",NA,55,"F",NA,3.7,4,6,"Tissue Quality Control",4,49158237
-"130","RSMG3_5","RSMG3_5","RSMG3","McGill","Resected",NA,55,"F",NA,2.9,20,6,"Tissue Quality Control",4,43195555
-"131","RSMG3_6","RSMG3_6","RSMG3","McGill","Resected",NA,55,"F",NA,4.8,-80,0,"Tissue Quality Control",4,49672930
-"132","RSMG4_1","RSMG4_1","RSMG4","McGill","Resected",NA,50,"F",NA,2.6,4,36,"Tissue Quality Control",4,42280398
-"133","RSMG4_2","RSMG4_2","RSMG4","McGill","Resected",NA,50,"F",NA,2.5,20,36,"Tissue Quality Control",4,44592014
-"134","RSMG4_3","RSMG4_3","RSMG4","McGill","Resected",NA,50,"F",NA,1,4,24,"Tissue Quality Control",4,49014795
-"135","RSMG4_4","RSMG4_4","RSMG4","McGill","Resected",NA,50,"F",NA,2.4,20,24,"Tissue Quality Control",4,42742770
-"136","RSMG4_5","RSMG4_5","RSMG4","McGill","Resected",NA,50,"F",NA,3.6,4,6,"Tissue Quality Control",4,97796717
-"137","RSMG4_6","RSMG4_6","RSMG4","McGill","Resected",NA,50,"F",NA,2.4,20,6,"Tissue Quality Control",4,46893512
-"138","RSMG4_7","RSMG4_7","RSMG4","McGill","Resected",NA,50,"F",NA,5.1,-80,0,"Tissue Quality Control",4,71825544
-"139","RSMG5_1","RSMG5_1","RSMG5","McGill","Resected",NA,52,"F",NA,3,4,36,"Tissue Quality Control",4,47027845
-"140","RSMG5_2","RSMG5_2","RSMG5","McGill","Resected",NA,52,"F",NA,2.7,20,36,"Tissue Quality Control",4,43048819
-"141","RSMG5_3","RSMG5_3","RSMG5","McGill","Resected",NA,52,"F",NA,3.8,4,24,"Tissue Quality Control",4,46101354
-"142","RSMG5_4","RSMG5_4","RSMG5","McGill","Resected",NA,52,"F",NA,2.7,20,24,"Tissue Quality Control",4,47175722
-"143","RSMG5_5","RSMG5_5","RSMG5","McGill","Resected",NA,52,"F",NA,4,4,6,"Tissue Quality Control",4,68015677
-"144","RSMG5_6","RSMG5_6","RSMG5","McGill","Resected",NA,52,"F",NA,2.7,20,6,"Tissue Quality Control",4,48512214
-"145","RSMG5_7","RSMG5_7","RSMG5","McGill","Resected",NA,52,"F",NA,5.3,-80,0,"Tissue Quality Control",4,44759976
-"146","RSMG6_1","RSMG6_1","RSMG6","McGill","Resected",NA,64,"M",NA,2.4,4,36,"Tissue Quality Control",4,41438603
-"147","RSMG6_2","RSMG6_2","RSMG6","McGill","Resected",NA,64,"M",NA,2.8,4,24,"Tissue Quality Control",4,43525516
-"148","RSMG6_3","RSMG6_3","RSMG6","McGill","Resected",NA,64,"M",NA,3.7,4,6,"Tissue Quality Control",4,50760186
-"149","RSMG6_4","RSMG6_4","RSMG6","McGill","Resected",NA,64,"M",NA,4.8,-80,0,"Tissue Quality Control",4,57898625
-"150","RSMG7_1","RSMG7_1","RSMG7","McGill","Resected",NA,76,"M",NA,4,4,36,"Tissue Quality Control",4,52868581
-"151","RSMG7_2","RSMG7_2","RSMG7","McGill","Resected",NA,76,"M",NA,2.5,20,36,"Tissue Quality Control",4,42789934
-"152","RSMG7_3","RSMG7_3","RSMG7","McGill","Resected",NA,76,"M",NA,4,4,24,"Tissue Quality Control",4,51596908
-"153","RSMG7_4","RSMG7_4","RSMG7","McGill","Resected",NA,76,"M",NA,2.8,20,24,"Tissue Quality Control",4,45590163
-"154","RSMG7_5","RSMG7_5","RSMG7","McGill","Resected",NA,76,"M",NA,3.9,4,6,"Tissue Quality Control",4,49031067
-"155","RSMG7_6","RSMG7_6","RSMG7","McGill","Resected",NA,76,"M",NA,2.8,20,6,"Tissue Quality Control",4,58661550
-"156","RSMG7_7","RSMG7_7","RSMG7","McGill","Resected",NA,76,"M",NA,5.1,-80,0,"Tissue Quality Control",4,55682627
-"157","RSMG8_1","RSMG8_1","RSMG8","McGill","Resected",NA,60,"M",NA,4.3,4,36,"Tissue Quality Control",4,44790979
-"158","RSMG8_2","RSMG8_2","RSMG8","McGill","Resected",NA,60,"M",NA,2.5,20,36,"Tissue Quality Control",4,42583676
-"159","RSMG8_3","RSMG8_3","RSMG8","McGill","Resected",NA,60,"M",NA,5,4,6,"Tissue Quality Control",4,133526579
-"160","RSMG8_4","RSMG8_4","RSMG8","McGill","Resected",NA,60,"M",NA,3.8,20,6,"Tissue Quality Control",4,62329573
-"161","RSMG8_5","RSMG8_5","RSMG8","McGill","Resected",NA,60,"M",NA,5.1,-80,0,"Tissue Quality Control",4,61652075
-"162","RSMG9_1","RSMG9_1","RSMG9","McGill","Resected",NA,66,"M",NA,2.1,4,36,"Tissue Quality Control",4,43839785
-"163","RSMG9_2","RSMG9_2","RSMG9","McGill","Resected",NA,66,"M",NA,1.6,20,36,"Tissue Quality Control",4,44786953
-"164","RSMG9_3","RSMG9_3","RSMG9","McGill","Resected",NA,66,"M",NA,2.3,4,24,"Tissue Quality Control",4,48918544
-"165","RSMG9_4","RSMG9_4","RSMG9","McGill","Resected",NA,66,"M",NA,1.9,20,24,"Tissue Quality Control",4,43833872
-"166","RSMG9_5","RSMG9_5","RSMG9","McGill","Resected",NA,66,"M",NA,3.8,4,6,"Tissue Quality Control",4,64234942
-"167","RSMG9_6","RSMG9_6","RSMG9","McGill","Resected",NA,66,"M",NA,2.4,20,6,"Tissue Quality Control",4,48737046
-"168","RSMG9_7","RSMG9_7","RSMG9","McGill","Resected",NA,66,"M",NA,4.3,-80,0,"Tissue Quality Control",4,78632719
+,Sample_ID,BBN_ID,Case_ID,Brain_Bank,Tissue_Type,Brain_Region,Age,Sex,PostMortemDelayHours,RIN,Storage_Temp,Time_Delay,Study_Origin,Sequencing_Batch,Aligned_reads,RIN_Check,QC_Check
+0,IGF123494,S17/109,2017-109,Netherlands,Post_Mortem,ITG,91,M,0.212,7.9,,,Tissue Quality Control,1,66028665,True,True
+1,IGF123495,S15/016,2015-016,Netherlands,Post_Mortem,ITG,95,F,0.295,2.1,,,Tissue Quality Control,1,65520071,False,True
+2,IGF123498,BBN_18407,SD046_13,Edinburgh,Post_Mortem,MTG,62,M,41.0,6.4,,,MAP,1,59888834,True,True
+3,IGF123499,S17/016,2017-016,Netherlands,Post_Mortem,ITG,72,M,0.181,6.7,,,Tissue Quality Control,1,56138960,True,True
+4,IGF123500,BBN002.32628,A080/18,Kings,Post_Mortem,MTG,93,M,26.0,6.3,,,MAP,1,52231143,True,True
+5,IGF123504,BBN006.36102,1190,Bristol,Post_Mortem,MTG,75,M,46.5,5.0,,,MAP,1,61379485,True,True
+6,IGF123506,S17/093,2017-093,Netherlands,Post_Mortem,ITG,82,M,0.24,7.6,,,Tissue Quality Control,1,41266161,True,True
+7,IGF123509,BBN_22612,SD022_14,Edinburgh,Post_Mortem,MTG,61,M,70.0,5.1,,,MAP,1,50783804,True,True
+8,IGF123511,BBN006.30165,1066,Bristol,Post_Mortem,MTG,93,M,34.5,3.8,,,MAP,1,64202455,False,True
+9,IGF123512,S18/123,2018-123,Netherlands,Post_Mortem,ITG,82,F,0.264,5.8,,,Tissue Quality Control,1,46659581,True,True
+10,IGF123513,S15/033,2015-033,Netherlands,Post_Mortem,ITG,93,M,0.319,7.1,,,Tissue Quality Control,1,60696220,True,True
+11,IGF123519,BBN006.36107,1191,Bristol,Post_Mortem,MTG,92,F,71.0,6.2,,,MAP,1,57368868,True,True
+12,IGF123523,S17/005,2017-005,Netherlands,Post_Mortem,ITG,60,F,0.229,7.9,,,Tissue Quality Control,1,64556805,True,True
+13,IGF123525,BBN_24243,A250/14,Kings,Post_Mortem,MTG,69,F,48.0,5.9,,,MAP,1,63983760,True,True
+14,IGF123531,S18/112,2018-112,Netherlands,Post_Mortem,ITG,95,F,0.181,6.9,,,Tissue Quality Control,1,104502590,True,True
+15,IGF123537,S18/030,2018-030,Netherlands,Post_Mortem,ITG,102,F,0.215,7.8,,,Tissue Quality Control,1,56805925,True,True
+16,IGF123541,BBN002.36130,A119/20,Kings,Post_Mortem,MTG,95,M,19.0,2.6,,,MAP,1,2549227,False,False
+17,IGF123547,BBN002.32844,A141/18,Kings,Post_Mortem,MTG,81,F,42.0,4.8,,,MAP,1,55000825,True,True
+18,IGF123549,BBN002.28858,A237/16,Kings,Post_Mortem,MTG,80,M,58.0,5.8,,,MAP,1,51158856,True,True
+19,IGF123550,S15/027,2015-027,Netherlands,Post_Mortem,ITG,76,F,0.198,5.1,,,Tissue Quality Control,1,65622054,True,True
+20,IGF123554,BBN006.36170,1194,Bristol,Post_Mortem,MTG,87,F,29.5,4.6,,,MAP,1,51151446,True,True
+21,IGF123555,S18/105,2018-105,Netherlands,Post_Mortem,ITG,86,M,0.281,7.2,,,Tissue Quality Control,1,31723200,True,False
+22,IGF123556,S15/074,2015-074,Netherlands,Post_Mortem,ITG,89,F,0.542,7.0,,,Tissue Quality Control,1,70054877,True,True
+23,IGF117757,BBN_15230,NP13-012,OxfordÂ ,Post_Mortem,MTG,60,F,48.0,6.7,,,TREM2,2,49033831,True,True
+24,IGF117764,BBN_16213,A127-11,Kings,Post_Mortem,MTG,73,M,23.0,4.6,,,TREM2,2,57607231,True,True
+25,IGF117772,BBN_7519,20100742,Newcastle,Post_Mortem,MTG,67,M,22.0,7.5,,,TREM2,2,49703078,True,True
+26,IGF117779,BBN005.29520,DPM16-44,Manchester,Post_Mortem,MTG,94,M,36.5,4.3,,,TREM2,2,58729672,True,True
+27,IGF117782,BBN_11449,C19-93,UCL,Post_Mortem,MTG,82,M,33.0,7.5,,,TREM2,2,53542146,True,True
+28,IGF117787,BBN_11804,P23-07,UCL,Post_Mortem,MTG,76,M,39.5,7.8,,,TREM2,2,54584414,True,True
+29,IGF117823,BBN_21005,A051-14,Kings,Post_Mortem,MTG,76,F,22.0,6.5,,,TREM2,2,96540725,True,True
+30,IGF117824,BBN_18399,A053-11,Kings,Post_Mortem,MTG,77,M,11.0,7.0,,,TREM2,2,54568463,True,True
+31,IGF117826,BBN002.30035,A115-17,Kings,Post_Mortem,MTG,92,M,9.0,6.1,,,TREM2,2,80181156,True,False
+32,IGF117832,BBN002.29089,A297-16,Kings,Post_Mortem,MTG,81,M,10.0,3.8,,,TREM2,2,68684446,False,False
+33,IGF117833,BBN_13802,A319-11,Kings,Post_Mortem,MTG,74,M,24.0,4.7,,,TREM2,2,60898776,True,False
+34,IGF117834,BBN002.29170,A354-16,Kings,Post_Mortem,MTG,92,F,12.0,3.8,,,TREM2,2,69265321,False,False
+35,IGF117836,,PDC016,Imperial,Post_Mortem,MTG,91,F,22.0,7.0,,,TREM2,2,46411181,True,True
+36,IGF117837,,PDC026,Imperial,Post_Mortem,MTG,80,F,23.0,5.0,,,TREM2,2,68695407,True,True
+37,IGF122095, BBN004.28979,NP08/166 ,Oxford ,Post_Mortem,MTG,82,M,70.0,2.2,,,TREM2,3,35333866,False,True
+38,IGF122097,BBN_2414,SD030/07,Edinburgh,Post_Mortem,MTG,39,M,71.0,6.9,,,TREM2,3,42044719,True,True
+39,IGF122099,BBN_7545,20110272,Newcastle,Post_Mortem,MTG,78,F,34.0,4.8,,,TREM2,3,49085968,True,True
+40,IGF122100,BBN_7403,20060093,Newcastle,Post_Mortem,MTG,78,F,23.0,5.4,,,TREM2,3,57362398,True,True
+41,IGF122109,BBN003.28342,20152915,Newcastle,Post_Mortem,MTG,84,M,45.0,6.0,,,TREM2,3,48228856,True,True
+42,IGF122110,BBN003.32295,19980098,Newcastle,Post_Mortem,MTG,75,F,27.0,5.0,,,TREM2,3,40362353,True,True
+43,IGF122113,BBN_18791,DPM13/42,Manchester,Post_Mortem,MTG,89,F,88.0,2.5,,,TREM2,3,35610021,False,True
+44,IGF122119,BBN_14801,20130400,Newcastle,Post_Mortem,MTG,65,F,47.0,5.3,,,TREM2,3,38129266,True,True
+45,IGF122132,BBN_15304,A301/10,Kings,Post_Mortem,MTG,80,M,45.0,5.1,,,TREM2,3,48257809,True,True
+46,IGF122137,BBN_7404,20060099,Newcastle,Post_Mortem,MTG,89,F,24.0,6.1,,,TREM2,3,38875841,True,True
+47,IGF122144,BBN_7115,20050102,Newcastle,Post_Mortem,MTG,72,M,17.0,6.3,,,TREM2,3,38867936,True,True
+48,IGF122173,BBN003.35446,20196919,Newcastle,Post_Mortem,MTG,82,F,42.0,5.3,,,TREM2,3,37737486,True,True
+49,IGF122184,BBN003.34161,20185945,Newcastle,Post_Mortem,MTG,87,M,46.0,5.7,,,TREM2,3,64732285,True,True
+50,IGF122188,BBN003.32261,19960064,Newcastle,Post_Mortem,MTG,72,F,28.0,6.6,,,TREM2,3,46766646,True,True
+51,IGF122191,BBN003.26951,20150975,Newcastle,Post_Mortem,MTG,79,M,39.0,6.6,,,TREM2,3,70434808,True,True
+52,IGF122196, BBN_5650,NP11/114 ,Oxford ,Post_Mortem,MTG,57,M,48.0,5.3,,,TREM2,3,49157364,True,True
+53,IGF122197,BBN002.29170,A354/16,Kings,Post_Mortem,MTG,92,F,12.0,2.2,,,TREM2,3,45283130,False,True
+54,IGF122211,BBN_6122,20000034,Newcastle,Post_Mortem,MTG,70,M,119.0,7.4,,,TREM2,3,41705661,True,True
+55,IGF122213, BBN_11055,NP12/098 ,Oxford ,Post_Mortem,MTG,68,M,33.0,6.2,,,TREM2,3,52364364,True,True
+56,IGF122220,BBN_24279,20141901,Newcastle,Post_Mortem,MTG,80,F,25.0,7.2,,,TREM2,3,54235990,True,True
+57,IGF122241,BBN_7554,20110476,Newcastle,Post_Mortem,MTG,65,M,22.0,4.6,,,TREM2,3,60959299,True,True
+58,IGF119492,RSMG1_1,RSMG1,McGill,Resected,,39,F,,4.7,4.0,36.0,Tissue Quality Control,4,48951388,,True
+59,IGF119489,RSMG1_2,RSMG1,McGill,Resected,,39,F,,3.7,20.0,36.0,Tissue Quality Control,4,10059742,,False
+60,IGF119490,RSMG1_3,RSMG1,McGill,Resected,,39,F,,4.0,20.0,24.0,Tissue Quality Control,4,19717612,,False
+61,IGF119493,RSMG1_4,RSMG1,McGill,Resected,,39,F,,4.8,4.0,6.0,Tissue Quality Control,4,61063348,,True
+62,IGF119491,RSMG1_5,RSMG1,McGill,Resected,,39,F,,4.2,20.0,6.0,Tissue Quality Control,4,52225048,,True
+63,IGF119494,RSMG1_6,RSMG1,McGill,Resected,,39,F,,5.5,-80.0,0.0,Tissue Quality Control,4,49496182,,True
+64,IGF119546,RSMG10_1,RSMG10,McGill,Resected,,57,M,,1.7,4.0,36.0,Tissue Quality Control,4,51278511,,True
+65,IGF119544,RSMG10_2,RSMG10,McGill,Resected,,57,M,,2.2,20.0,36.0,Tissue Quality Control,4,60247996,,True
+66,IGF119547,RSMG10_3,RSMG10,McGill,Resected,,57,M,,3.8,4.0,24.0,Tissue Quality Control,4,50448533,,True
+67,IGF119548,RSMG10_4,RSMG10,McGill,Resected,,57,M,,2.1,4.0,6.0,Tissue Quality Control,4,76760771,,True
+68,IGF119545,RSMG10_5,RSMG10,McGill,Resected,,57,M,,3.2,20.0,6.0,Tissue Quality Control,4,43882511,,True
+69,IGF119549,RSMG10_6,RSMG10,McGill,Resected,,57,M,,5.9,-80.0,0.0,Tissue Quality Control,4,90748013,,True
+70,IGF119552,RSMG11_1,RSMG11,McGill,Resected,,54,M,,4.0,4.0,36.0,Tissue Quality Control,4,48026317,,True
+71,IGF119550,RSMG11_2,RSMG11,McGill,Resected,,54,M,,3.8,20.0,36.0,Tissue Quality Control,4,56647142,,True
+72,IGF119553,RSMG11_3,RSMG11,McGill,Resected,,54,M,,3.9,4.0,24.0,Tissue Quality Control,4,43971531,,True
+73,IGF119554,RSMG11_4,RSMG11,McGill,Resected,,54,M,,5.0,4.0,6.0,Tissue Quality Control,4,89155989,,True
+74,IGF119551,RSMG11_5,RSMG11,McGill,Resected,,54,M,,2.6,20.0,6.0,Tissue Quality Control,4,65878162,,True
+75,IGF119555,RSMG11_6,RSMG11,McGill,Resected,,54,M,,5.6,-80.0,0.0,Tissue Quality Control,4,91668973,,True
+76,IGF119566,RSMG12_1,RSMG12,McGill,Resected,,72,M,,4.4,4.0,36.0,Tissue Quality Control,4,51650086,,True
+77,IGF119556,RSMG12_2,RSMG12,McGill,Resected,,72,M,,4.5,20.0,36.0,Tissue Quality Control,4,47494193,,True
+78,IGF119559,RSMG12_3,RSMG12,McGill,Resected,,72,M,,4.0,4.0,24.0,Tissue Quality Control,4,43075583,,True
+79,IGF119557,RSMG12_4,RSMG12,McGill,Resected,,72,M,,2.6,20.0,24.0,Tissue Quality Control,4,70145384,,True
+80,IGF119560,RSMG12_5,RSMG12,McGill,Resected,,72,M,,4.6,4.0,6.0,Tissue Quality Control,4,59697144,,True
+81,IGF119561,RSMG12_6,RSMG12,McGill,Resected,,72,M,,4.3,20.0,6.0,Tissue Quality Control,4,49912537,,True
+82,IGF119562,RSMG12_7,RSMG12,McGill,Resected,,72,M,,4.6,-80.0,0.0,Tissue Quality Control,4,60040851,,True
+83,IGF119563,RSMG12_8,RSMG12,McGill,Resected,,72,M,,4.3,-80.0,0.0,Tissue Quality Control,4,66186567,,True
+84,IGF119567,RSMG13_1,RSMG13,McGill,Resected,,50,F,,4.5,4.0,36.0,Tissue Quality Control,4,56952592,,True
+85,IGF119564,RSMG13_2,RSMG13,McGill,Resected,,50,F,,6.1,20.0,36.0,Tissue Quality Control,4,66732431,,False
+86,IGF119565,RSMG13_3,RSMG13,McGill,Resected,,50,F,,7.2,20.0,24.0,Tissue Quality Control,4,60447458,,True
+87,IGF119568,RSMG13_4,RSMG13,McGill,Resected,,50,F,,4.7,4.0,6.0,Tissue Quality Control,4,51009297,,True
+88,IGF119558,RSMG13_5,RSMG13,McGill,Resected,,50,F,,4.2,20.0,6.0,Tissue Quality Control,4,53871393,,True
+89,IGF119569,RSMG13_6,RSMG13,McGill,Resected,,50,F,,5.0,-80.0,0.0,Tissue Quality Control,4,63879263,,True
+90,IGF119573,RSMG14_1,RSMG14,McGill,Resected,,42,M,,4.4,4.0,36.0,Tissue Quality Control,4,77523823,,True
+91,IGF119570,RSMG14_2,RSMG14,McGill,Resected,,42,M,,3.8,20.0,36.0,Tissue Quality Control,4,47495095,,True
+92,IGF119574,RSMG14_3,RSMG14,McGill,Resected,,42,M,,4.8,4.0,24.0,Tissue Quality Control,4,77689512,,True
+93,IGF119571,RSMG14_4,RSMG14,McGill,Resected,,42,M,,4.1,20.0,24.0,Tissue Quality Control,4,52838149,,True
+94,IGF119575,RSMG14_5,RSMG14,McGill,Resected,,42,M,,4.9,4.0,6.0,Tissue Quality Control,4,52974094,,True
+95,IGF119572,RSMG14_6,RSMG14,McGill,Resected,,42,M,,5.3,20.0,6.0,Tissue Quality Control,4,67601379,,True
+96,IGF119576,RSMG14_7,RSMG14,McGill,Resected,,42,M,,4.0,-80.0,0.0,Tissue Quality Control,4,66410490,,True
+97,IGF119577,RSMG14_8,RSMG14,McGill,Resected,,42,M,,4.6,-80.0,0.0,Tissue Quality Control,4,47803374,,True
+98,IGF119580,RSMG15_1,RSMG15,McGill,Resected,,52,F,,3.4,4.0,36.0,Tissue Quality Control,4,58595366,,True
+99,IGF119578,RSMG15_2,RSMG15,McGill,Resected,,52,F,,4.0,20.0,36.0,Tissue Quality Control,4,59599695,,False
+100,IGF119581,RSMG15_3,RSMG15,McGill,Resected,,52,F,,3.6,4.0,24.0,Tissue Quality Control,4,46515081,,True
+101,IGF119585,RSMG15_4,RSMG15,McGill,Resected,,52,F,,2.7,20.0,24.0,Tissue Quality Control,4,39914519,,True
+102,IGF119582,RSMG15_5,RSMG15,McGill,Resected,,52,F,,4.4,4.0,6.0,Tissue Quality Control,4,50880557,,True
+103,IGF119579,RSMG15_6,RSMG15,McGill,Resected,,52,F,,3.6,20.0,6.0,Tissue Quality Control,4,45292094,,True
+104,IGF119583,RSMG15_7,RSMG15,McGill,Resected,,52,F,,3.7,-80.0,0.0,Tissue Quality Control,4,87669898,,True
+105,IGF119588,RSMG16_1,RSMG16,McGill,Resected,,63,M,,3.9,4.0,36.0,Tissue Quality Control,4,47483008,,True
+106,IGF119584,RSMG16_2,RSMG16,McGill,Resected,,63,M,,3.8,20.0,36.0,Tissue Quality Control,4,44526511,,True
+107,IGF119589,RSMG16_3,RSMG16,McGill,Resected,,63,M,,3.7,4.0,24.0,Tissue Quality Control,4,58814337,,True
+108,IGF119586,RSMG16_4,RSMG16,McGill,Resected,,63,M,,2.6,20.0,24.0,Tissue Quality Control,4,53816617,,True
+109,IGF119590,RSMG16_5,RSMG16,McGill,Resected,,63,M,,4.7,4.0,6.0,Tissue Quality Control,4,65907272,,True
+110,IGF119587,RSMG16_6,RSMG16,McGill,Resected,,63,M,,4.1,20.0,6.0,Tissue Quality Control,4,49532416,,True
+111,IGF119591,RSMG16_7,RSMG16,McGill,Resected,,63,M,,4.7,-80.0,0.0,Tissue Quality Control,4,51154540,,True
+112,IGF119595,RSMG17_1,RSMG17,McGill,Resected,,63,M,,4.0,4.0,36.0,Tissue Quality Control,4,66749921,,True
+113,IGF119592,RSMG17_2,RSMG17,McGill,Resected,,63,M,,2.3,20.0,36.0,Tissue Quality Control,4,40464131,,True
+114,IGF119596,RSMG17_3,RSMG17,McGill,Resected,,63,M,,4.2,4.0,24.0,Tissue Quality Control,4,53231137,,True
+115,IGF119593,RSMG17_4,RSMG17,McGill,Resected,,63,M,,2.5,20.0,24.0,Tissue Quality Control,4,42543790,,True
+116,IGF119597,RSMG17_5,RSMG17,McGill,Resected,,63,M,,4.3,4.0,6.0,Tissue Quality Control,4,64051436,,True
+117,IGF119594,RSMG17_6,RSMG17,McGill,Resected,,63,M,,4.6,20.0,6.0,Tissue Quality Control,4,158396887,,True
+118,IGF119598,RSMG17_7,RSMG17,McGill,Resected,,63,M,,4.1,-80.0,0.0,Tissue Quality Control,4,71471144,,True
+119,IGF119498,RSMG2_1,RSMG2,McGill,Resected,,57,M,,5.9,4.0,36.0,Tissue Quality Control,4,37416186,,False
+120,IGF119495,RSMG2_2,RSMG2,McGill,Resected,,57,M,,2.6,20.0,36.0,Tissue Quality Control,4,49315682,,True
+121,IGF119496,RSMG2_3,RSMG2,McGill,Resected,,57,M,,2.1,20.0,24.0,Tissue Quality Control,4,37630522,,True
+122,IGF119499,RSMG2_4,RSMG2,McGill,Resected,,57,M,,4.8,4.0,6.0,Tissue Quality Control,4,44689518,,True
+123,IGF119497,RSMG2_5,RSMG2,McGill,Resected,,57,M,,3.9,20.0,6.0,Tissue Quality Control,4,44711967,,True
+124,IGF119500,RSMG2_6,RSMG2,McGill,Resected,,57,M,,4.5,-80.0,0.0,Tissue Quality Control,4,45462230,,True
+125,IGF119504,RSMG3_1,RSMG3,McGill,Resected,,55,F,,3.4,4.0,36.0,Tissue Quality Control,4,48839465,,True
+126,IGF119501,RSMG3_2,RSMG3,McGill,Resected,,55,F,,3.0,20.0,36.0,Tissue Quality Control,4,29598531,,False
+127,IGF119502,RSMG3_3,RSMG3,McGill,Resected,,55,F,,2.5,20.0,24.0,Tissue Quality Control,4,48158369,,True
+128,IGF119505,RSMG3_4,RSMG3,McGill,Resected,,55,F,,3.7,4.0,6.0,Tissue Quality Control,4,49158237,,True
+129,IGF119503,RSMG3_5,RSMG3,McGill,Resected,,55,F,,2.9,20.0,6.0,Tissue Quality Control,4,43195555,,True
+130,IGF119506,RSMG3_6,RSMG3,McGill,Resected,,55,F,,4.8,-80.0,0.0,Tissue Quality Control,4,49672930,,True
+131,IGF119510,RSMG4_1,RSMG4,McGill,Resected,,50,F,,2.6,4.0,36.0,Tissue Quality Control,4,42280398,,True
+132,IGF119507,RSMG4_2,RSMG4,McGill,Resected,,50,F,,2.5,20.0,36.0,Tissue Quality Control,4,44592014,,True
+133,IGF119511,RSMG4_3,RSMG4,McGill,Resected,,50,F,,1.0,4.0,24.0,Tissue Quality Control,4,49014795,,True
+134,IGF119508,RSMG4_4,RSMG4,McGill,Resected,,50,F,,2.4,20.0,24.0,Tissue Quality Control,4,42742770,,True
+135,IGF119512,RSMG4_5,RSMG4,McGill,Resected,,50,F,,3.6,4.0,6.0,Tissue Quality Control,4,97796717,,True
+136,IGF119509,RSMG4_6,RSMG4,McGill,Resected,,50,F,,2.4,20.0,6.0,Tissue Quality Control,4,46893512,,True
+137,IGF119513,RSMG4_7,RSMG4,McGill,Resected,,50,F,,5.1,-80.0,0.0,Tissue Quality Control,4,71825544,,True
+138,IGF119517,RSMG5_1,RSMG5,McGill,Resected,,52,F,,3.0,4.0,36.0,Tissue Quality Control,4,47027845,,True
+139,IGF119514,RSMG5_2,RSMG5,McGill,Resected,,52,F,,2.7,20.0,36.0,Tissue Quality Control,4,43048819,,True
+140,IGF119518,RSMG5_3,RSMG5,McGill,Resected,,52,F,,3.8,4.0,24.0,Tissue Quality Control,4,46101354,,True
+141,IGF119515,RSMG5_4,RSMG5,McGill,Resected,,52,F,,2.7,20.0,24.0,Tissue Quality Control,4,47175722,,True
+142,IGF119519,RSMG5_5,RSMG5,McGill,Resected,,52,F,,4.0,4.0,6.0,Tissue Quality Control,4,68015677,,True
+143,IGF119516,RSMG5_6,RSMG5,McGill,Resected,,52,F,,2.7,20.0,6.0,Tissue Quality Control,4,48512214,,True
+144,IGF119520,RSMG5_7,RSMG5,McGill,Resected,,52,F,,5.3,-80.0,0.0,Tissue Quality Control,4,44759976,,True
+145,IGF119521,RSMG6_1,RSMG6,McGill,Resected,,64,M,,2.4,4.0,36.0,Tissue Quality Control,4,41438603,,True
+146,IGF119522,RSMG6_2,RSMG6,McGill,Resected,,64,M,,2.8,4.0,24.0,Tissue Quality Control,4,43525516,,True
+147,IGF119523,RSMG6_3,RSMG6,McGill,Resected,,64,M,,3.7,4.0,6.0,Tissue Quality Control,4,50760186,,True
+148,IGF119524,RSMG6_4,RSMG6,McGill,Resected,,64,M,,4.8,-80.0,0.0,Tissue Quality Control,4,57898625,,True
+149,IGF119525,RSMG7_1,RSMG7,McGill,Resected,,76,M,,4.0,4.0,36.0,Tissue Quality Control,4,52868581,,True
+150,IGF119526,RSMG7_2,RSMG7,McGill,Resected,,76,M,,2.5,20.0,36.0,Tissue Quality Control,4,42789934,,True
+151,IGF119527,RSMG7_3,RSMG7,McGill,Resected,,76,M,,4.0,4.0,24.0,Tissue Quality Control,4,51596908,,True
+152,IGF119528,RSMG7_4,RSMG7,McGill,Resected,,76,M,,2.8,20.0,24.0,Tissue Quality Control,4,45590163,,True
+153,IGF119529,RSMG7_5,RSMG7,McGill,Resected,,76,M,,3.9,4.0,6.0,Tissue Quality Control,4,49031067,,True
+154,IGF119530,RSMG7_6,RSMG7,McGill,Resected,,76,M,,2.8,20.0,6.0,Tissue Quality Control,4,58661550,,True
+155,IGF119531,RSMG7_7,RSMG7,McGill,Resected,,76,M,,5.1,-80.0,0.0,Tissue Quality Control,4,55682627,,True
+156,IGF119534,RSMG8_1,RSMG8,McGill,Resected,,60,M,,4.3,4.0,36.0,Tissue Quality Control,4,44790979,,True
+157,IGF119532,RSMG8_2,RSMG8,McGill,Resected,,60,M,,2.5,20.0,36.0,Tissue Quality Control,4,42583676,,True
+158,IGF119535,RSMG8_3,RSMG8,McGill,Resected,,60,M,,5.0,4.0,6.0,Tissue Quality Control,4,133526579,,True
+159,IGF119533,RSMG8_4,RSMG8,McGill,Resected,,60,M,,3.8,20.0,6.0,Tissue Quality Control,4,62329573,,True
+160,IGF119536,RSMG8_5,RSMG8,McGill,Resected,,60,M,,5.1,-80.0,0.0,Tissue Quality Control,4,61652075,,True
+161,IGF119540,RSMG9_1,RSMG9,McGill,Resected,,66,M,,2.1,4.0,36.0,Tissue Quality Control,4,43839785,,True
+162,IGF119537,RSMG9_2,RSMG9,McGill,Resected,,66,M,,1.6,20.0,36.0,Tissue Quality Control,4,44786953,,True
+163,IGF119541,RSMG9_3,RSMG9,McGill,Resected,,66,M,,2.3,4.0,24.0,Tissue Quality Control,4,48918544,,True
+164,IGF119538,RSMG9_4,RSMG9,McGill,Resected,,66,M,,1.9,20.0,24.0,Tissue Quality Control,4,43833872,,True
+165,IGF119542,RSMG9_5,RSMG9,McGill,Resected,,66,M,,3.8,4.0,6.0,Tissue Quality Control,4,64234942,,True
+166,IGF119539,RSMG9_6,RSMG9,McGill,Resected,,66,M,,2.4,20.0,6.0,Tissue Quality Control,4,48737046,,True
+167,IGF119543,RSMG9_7,RSMG9,McGill,Resected,,66,M,,4.3,-80.0,0.0,Tissue Quality Control,4,78632719,,True

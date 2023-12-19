@@ -258,8 +258,18 @@ bulkrna['CaseID']=bulkrna['CaseID'].str.replace('*','')
 # setting index for merging
 bulkrna.set_index('CaseID',inplace=True)
 
+
+
 # import TissueQC metadata
 tissueqc=pd.read_csv('TQC_metadata.csv', encoding='unicode_escape')
+
+"""
+tissueqc_key=pd.read_csv('key_tissueqc.csv')
+tissueqc_dict=pd.Series(tissueqc_key.Sample_ID.values,index=tissueqc_key.Sample_Name_original).to_dict()
+tissueqc.loc[tissueqc['Brain_Bank']=='McGill','Sample_ID']=tissueqc.loc[tissueqc['Brain_Bank']=='McGill','BBN_ID'].map(tissueqc_dict)
+print(tissueqc.loc[tissueqc['Brain_Bank']=='McGill','Sample_ID'])
+tissueqc.to_csv('TQC_metadata.csv')
+"""
 
 # keeping only samples from McGill and Netherlands
 tissueqc=tissueqc.loc[(tissueqc['Brain_Bank']=='Netherlands') | (tissueqc['Brain_Bank']=='McGill')]
@@ -270,7 +280,7 @@ tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('/','_')
 tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('*','')
 
 # setting index for merging
-tissueqc.set_index('Case_ID',inplace=True)
+tissueqc.set_index('Sample_ID',inplace=True)
 
 # formatting sample names for merging
 all_data['index']=all_data['Sample_Name_original'].str.replace('-','_')
@@ -284,18 +294,23 @@ all_data.set_index('index',inplace=True,drop=False)
 all_data=all_data.join(cd33)
 
 
-# merging all_data with TissueQC metadata
+# merging all_data with RIN metadata
 all_data.set_index('CaseID (normalized)',inplace=True,drop=False)
 all_data=all_data.join(bulkrna[['RIN','NanodropRNAConcentration_ng_ul']])
-all_data=all_data.join(tissueqc[['Storage_Temp','Time_Delay']])
 
 # merging all_data with counts data
 all_data.set_index('Sample_ID',inplace=True,drop=False)
 all_data=all_data.join(counts)
+all_data=all_data.join(tissueqc[['Storage_Temp','Time_Delay']])
+
+# dropping duplicate IGF IDs
 all_data.drop_duplicates('Sample_ID',inplace=True)
 
 # creating new standardized sample names
 all_data['Sample_Name']= all_data['BrainBankNetworkID_normalized']+'_'+all_data['Brain region']
+
+all_data['Brain region'].fillna('N/A',inplace=True)
+all_data['Enrichment'].fillna('N/A',inplace=True)
 
 # dealing specifically with snRNAseq sample names from the TREM2 study
 all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Sample_Name']= \
@@ -350,7 +365,7 @@ all_data.loc[all_data['Study']=='MAP'][['BrainBankNetworkID',
 
 # writing TREM2 sample sheet to csv file
 all_data.loc[all_data['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
-        'Brain region','Sample_Name','data_type']]. \
+        'Brain region','Sample_Name','data_type','Enrichment']]. \
                 to_csv('TREM2/samplesheet_TREM2.csv',index=False)
 
 # writing TREM2 metadata to csv file
@@ -363,14 +378,16 @@ all_data.loc[all_data['Study']=='TREM2'][['BrainBankNetworkID',
 
 # writing TissueQC sample sheet to csv file
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
-        'Brain region','Sample_Name','data_type']]. \
+        'Brain region','Sample_Name','data_type','Storage_Temp','Time_Delay']]. \
                 to_csv('TissueQC/samplesheet_TissueQC.csv',index=False)
 
 # writing TissueQC metadata to csv file
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
-                        'Brain region','Sample_Name','Storage_Temp','Time_Delay']]. \
+                        'Brain region','Sample_Name']]. \
                         drop_duplicates('BrainBankNetworkID'). \
                 to_csv('TissueQC/donor_metadata.csv', index=False)
+
+all_data.loc[all_data['Study']=='Tissue Quality Control','Sample_Name_original'].to_csv('key_tissueqc.csv')
 
 # select samples from a specific study
 all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
