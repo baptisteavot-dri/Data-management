@@ -1,0 +1,402 @@
+﻿CaseID,Region,Tissue Type,user,Comment,BulkRNAExcationDate,QCDate,RIN,NanodropRNAConcentration_ng_ul,FinalVolume(ul),FinalMass(ng),A260_280_Ratio,A260_230_Ratio,Pass/Fail,StudyID,Study
+20030099,Temporal Cortex BA21,,EA,freezer spill needs repeat,17/12/2021,17/12/2021,,677.7,23,15587.1,2.06,1.79,,2,TREM2
+20110477,Somatosensory Cortex,,All,,2019-12-17,,,59.8,20,1196,2.02,1.7,,2,TREM2
+20110477,Somatosensory Cortex,,AMG,,2021-07-13,,,148.1,,0,2.05,0.32,,2,TREM2
+A187/96*,Temporal Cortex BA21,,AMG,,2021-07-13,,,121.8,,0,2.04,1.66,,2,TREM2
+A253/12,Entorhinal Cortex,,AMG,,2021-07-13,,,121.8,,0,2.04,1.66,,2,TREM2
+A329/10,Temporal Cortex BA21,,AMG,,2021-07-13,,,521.7,,0,2.03,2.16,,2,TREM2
+20050033,Entorhinal Cortex,,AMG,,2021-08-04,2021-08-04,,141.8,,0,1.9,1.32,,2,TREM2
+20110476,Somatosensory Cortex,,AMG,,2021-08-04,2021-08-04,,174.6,,0,2.01,1.85,,2,TREM2
+20174902,Temporal Cortex BA21,GM,AMG,,2021-08-04,2021-08-04,,212.3,,0,2.03,1.48,,2,TREM2
+A248/10,Entorhinal Cortex,,AMG,,2021-08-04,2021-08-04,,158.7,,0,1.91,1.19,,2,TREM2
+A048/13,Temporal Cortex BA21,,AMG,,2021-08-11,2021-08-11,,125.4,,0,1.98,0.91,,2,TREM2
+A048/13,Somatosensory Cortex,,AMG,,2021-08-11,2021-08-11,,154.5,,0,1.82,0.91,,2,TREM2
+A065/02*,Temporal Cortex BA21,,AMG,,2021-08-11,2021-08-11,,694.8,,0,2.05,1.65,,2,TREM2
+19920194,Entorhinal Cortex,,AMG,,2021-08-11,,,141,,0,2.07,1.37,,2,TREM2
+20050033,Somatosensory Cortex,,EA,,17/12/2021,17/12/2021,,690.3,23,15876.9,2.06,1.92,,2,TREM2
+20110476,Entorhinal Cortex,,AMG,,2021-08-11,2021-08-11,,439.9,,0,2.07,1.72,,2,TREM2
+20174902,Entorhinal Cortex,GM,AMG,,2021-08-11,2021-08-11,,246.6,,0,2.05,1.24,,2,TREM2
+BC454/945,Somatosensory Cortex,,AMG,,2021-08-11,2021-08-11,,460.6,,0,1.98,0.78,,2,TREM2
+NP12/098 ,Temporal Cortex BA21,GM,AMG,,2021-08-11,2021-08-11,,146.8,,0,2.03,0.78,,2,TREM2
+NP12/134 ,Temporal Cortex BA21,GM,AMG,,2021-08-11,2021-08-11,,457.9,,0,2.11,1.34,,2,TREM2
+A301/10,Entorhinal Cortex,,AMG,,2021-08-11,2021-08-11,,220.8,,0,2.04,0.55,,2,TREM2
+A048/13,Entorhinal Cortex,,AMG,,2021-08-19,2021-08-19,,219.1,,0,1.94,1.26,,2,TREM2
+19891015,Entorhinal Cortex,,AMG,,2021-08-19,2021-08-19,,646.9,,0,2.06,2.19,,2,TREM2
+19960064,Temporal Cortex BA21,,AMG,,2021-08-19,2021-08-19,,574.9,,0,2.05,2.27,,2,TREM2
+20050033,Temporal Cortex BA21,,AMG,,2021-08-19,2021-08-19,,371.6,,0,2.09,1.26,,2,TREM2
+20110476,Temporal Cortex BA21,,AMG,"sample found in -80 inventory, unclear why there is no conc",2021-08-19,,,,,0,,,,2,TREM2
+B509/962,Entorhinal Cortex,,AMG,,2021-08-19,2021-08-19,,178.4,,0,1.95,1.51,,2,TREM2
+BC454/945,Entorhinal Cortex,,AMG,,2021-08-19,2021-08-19,,440.6,,0,2.1,2.07,,2,TREM2
+NP11/114 ,Temporal Cortex BA21,GM,AMG,,2021-08-19,2021-08-19,,644.4,,0,2.06,2.26,,2,TREM2
+NP14/128 ,Temporal Cortex BA21,GM,AMG,,2021-08-19,2021-08-19,,458.9,,0,2.09,2.05,,2,TREM2
+P19/06,Temporal Cortex BA21,,AMG,,2021-08-19,2021-08-19,,549.6,,0,2.03,2.23,,2,TREM2
+A354/16,Temporal Cortex BA21,GM,AMG,,2021-08-19,2021-08-19,,375.1,,0,2.08,0.33,,2,TREM2
+A248/10,Temporal Cortex BA21,,AMG,,2021-08-20,2021-08-20,,520.2,,0,2.05,2.12,,2,TREM2
+20000034,Entorhinal Cortex,GM,EA,,17/12/2021,17/12/2021,,953.6,23,21932.8,2.08,1.95,,2,TREM2
+SD030/07,Temporal Cortex BA21,GM,EA,,17/12/2021,17/12/2021,,483.5,23,11120.5,2.08,0.86,,2,TREM2
+20130871,Somatosensory Cortex,GM,EA,,17/12/2021,17/12/2021,5.90 ,466,23,10718,2.07,1.5,,2,TREM2
+19910318,Entorhinal Cortex,GM,EA,,2021-10-29,2021-10-29,,263.2,23,6053.6,1.95,0.85,,2,TREM2
+19960052,Entorhinal Cortex,GM,EA,,2021-12-08,2021-12-08,,360.2,23,8284.6,2.09,0.5,,2,TREM2
+A220/11,Entorhinal Cortex,GM,EA,,2021-10-29,2021-10-29,,242.5,23,5577.5,2.09,1.54,,2,TREM2
+A23/02,Temporal Cortex BA21,GM,EA,,2021-10-29,2021-10-29,,278.3,23,6400.9,2.1,1.13,,2,TREM2
+19950030,Entorhinal Cortex,GM,EA,,2021-11-04,2021-11-04,,159.3,23,3663.9,2.06,1.45,,2,TREM2
+20000034,Temporal Cortex BA21,GM,EA,It didnt look there was any tissue in the tube when adding qiazol and no fatty layer formed after chloroform centrifuge,2021-11-04,2021-11-04,,12.3,23,282.9,1.9,0.19,,2,TREM2
+20150975,Somatosensory Cortex,GM,EA,,2021-11-04,2021-11-04,,25.4,23,584.2,2.04,0.12,,2,TREM2
+19960052,temporal Cortex BA21,GM,EA,,2021-12-07,2021-12-07,,293.6,23,6752.8,2.1,0.76,,2,TREM2
+19960052,Somatosensory Cortex,GM,EA, ,10/29/2021,10/29/2021,4.8,486.8,23,11196.4,2.12,1.85,,2,TREM2
+A210/05*,Entorhinal Cortex,GM,EA,,2021-11-04,2021-11-04,,213.7,23,4915.1,2,0.89,,2,TREM2
+20150712,Entorhinal Cortex,GM,EA,Large chunk of tissue was very difficult to homoginise,2021-11-09,2021-11-09,,1195.4,23,27494.2,2.09,1.04,,2,TREM2
+19980098,Temporal Cortex BA21,GM,EA,,2021-11-09,2021-11-09,,731,23,16813,2.08,2.14,,2,TREM2
+19980098,Somatosensory Cortex,GM,NW,,2021-10-28,2021-10-28,,268.1,23,6166.3,2.09,0.75,,2,TREM2
+19980098,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,310,23,7130,2.1,1.35,,2,TREM2
+A253/12,Somatosensory Cortex,GM,EA,,2021-11-09,2021-11-09,,271,23,6233,2.06,0.73,,2,TREM2
+A329/10,Entorhinal Cortex,GM,EA,,2021-11-09,2021-11-09,,273.4,23,6288.2,2.04,1.84,,2,TREM2
+20110477,Somatosensory Cortex,GM,EA,"RNA has already been extracted from a duplicate sample, very small amount of starting tissue",2021-11-09,2021-11-09,,74,23,1702,1.68,0.24,,2,TREM2
+A064/13,Entorhinal Cortex,GM,EA,tube was labelled A64/13,2021-12-11,2021-12-11,,179.4,23,4126.2,2.08,1.84,,2,TREM2
+19891053,Entorhinal Cortex,GM,EA,Large chunck of tissue- difficult to disociate,2021-12-11,2021-12-11,,389.6,23,8960.8,2.01,1.29,,2,TREM2
+20050102,Temporal Cortex BA21,GM,EA,,2021-11-09,2021-11-09,,548.8,23,12622.4,2.08,0.74,,2,TREM2
+20050102,Somatosensory Cortex,GM,EA,,2021-11-09,2021-11-09,,483.1,23,11111.3,2.1,1.08,,2,TREM2
+20050102,Entorhinal Cortex,GM,EA, ,12/2/2021,12/2/2021, ,911.7,23,20969.1,2.06,2.26,,2,TREM2
+20060093,Temporal Cortex BA21,GM,EA,,2021-12-11,2021-12-11,,420.1,23,9662.3,2.12,1.41,,2,TREM2
+20060093,Somatosensory Cortex,GM,EA,,2021-12-11,2021-12-11,,380,23,8740,2.05,0.38,,2,TREM2
+20150975,Temporal Cortex BA21,GM,EA,,2021-12-11,2021-12-11,,217.2,23,4995.6,2.04,0.57,,2,TREM2
+20150975,Somatosensory Cortex,GM,EA,,2021-12-11,2021-12-11,,399.9,23,9197.7,2.08,0.34,,2,TREM2
+20185935,Entorhinal Cortex,GM,EA,Large chunck of tissue- difficult to disociate,2021-12-11,2021-12-11,,317.7,23,7307.1,2.09,1.48,,2,TREM2
+19920035,Entorhinal Cortex,GM,EA,,2021-12-08,2021-12-08,,293.2,23,6743.6,2.08,0.55,,2,TREM2
+19920179,Entorhinal Cortex,GM,EA,,2021-12-08,2021-12-08,,74.2,23,1706.6,1.85,0.8,,2,TREM2
+19930222,Entorhinal Cortex,GM,EA,,2021-12-07,2021-12-07,,323.3,23,7435.9,2.09,2,,2,TREM2
+19950136,Entorhinal Cortex,GM,EA,,2021-12-08,2021-12-08,5.80 ,568.6,23,13077.8,2.04,1.42,,2,TREM2
+20060093,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,6.00 ,181.8,23,4181.4,2.07,1.74,,2,TREM2
+20100742,Entorhinal Cortex,GM,EA,,2021-12-07,2021-12-07,,412.5,23,9487.5,2.05,0.46,,2,TREM2
+20129990,Entorhinal Cortex,GM,EA,,2021-12-08,2021-12-08,,317.5,23,7302.5,2.08,0.63,,2,TREM2
+20060099,temporal Cortex BA21,GM,EA, ,24/11/2021,24/11/2021, ,589.5,23,13558.5,2.07,1.48,,2,TREM2
+20131157,temporal Cortex BA21,GM,EA,,2021-12-08,2021-12-08,,471.9,23,10853.7,2.13,1.85,,2,TREM2
+20060099,Somatosensory Cortex,GM,EA, ,12/2/2021,12/2/2021, ,775.7,23,17841.1,2.06,0.65,,2,TREM2
+20196909,Entorhinal Cortex,GM,EA,,2021-12-07,2021-12-07,,452.4,23,10405.2,2.12,0.69,,2,TREM2
+A23/03,Somatosensory Cortex,GM,EA,,2021-12-07,2021-12-07,,245.5,23,5646.5,2.04,0.68,,,
+A163/15,Somatosensory Cortex,GM,EA,,2021-12-07,2021-12-07,,620.2,23,14264.6,2.09,0.96,,,
+A163/15,Temporal Cortex BA21,GM,EA,,2021-12-07,12/7/2021,,490.1,23,11272.3,2.11,1.81,,,
+A163/15,Entorhinal Cortex,GM,EA,,2021-12-07,12/7/2021,,562.7,23,12942.1,2.06,1.95,,,
+P59/03,Temporal Cortex BA21,GM,EA,2nd attempt,15/12/2021,15/12/2021,,622.3,23,14312.9,2.08,0.42,,2,TREM2
+NP08/166 ,Temporal Cortex BA21,GM,EA,2nd attempt,15/12/2021,,,500.4,23,11509.2,2.11,1.96,,2,TREM2
+P7/09,Temporal Cortex BA21,GM,EA,2nd attempt,15/12/2021,,2.20 ,506.8,23,11656.4,2.1,1.18,,2,TREM2
+SD020/06,,,Nanet,Couldnt find sample,2019-12-18,,,36.1,20,722,2.1,1.25,,2,TREM2
+20060099,entorhinal Cortex,GM,EA, ,12/2/2021,12/2/2021, ,767.4,23,17650.2,2.07,1.41,,2,TREM2
+20174902,Somatosensory Cortex,GM,NW,,2021-10-22,2021-10-22,,67,45,3015,2.05,1.66,,2,TREM2
+20110272,Temporal Cortex BA21,GM,EA,,2021-12-11,2021-12-11,,502.7,23,11562.1,2.11,2.1,,2,TREM2
+A248/10,Somatosensory Cortex,GM,NW,,2021-10-22,2021-10-22,,81.6,45,3672,2.04,1.03,,2,TREM2
+A074/05*,Entorhinal Cortex,GM,NW,,2021-10-28,2021-10-28,,117,23,2691,2.02,0.81,,2,TREM2
+19920001,Entorhinal Cortex,,NW,,2021-10-28,2021-10-28,,83.2,23,1913.6,2.03,0.86,,2,TREM2
+20110272,Somatosensory Cortex,GM,EA,,2021-12-11,2021-12-11,,414.9,23,9542.7,2.08,0.9,,2,TREM2
+DPM16/44,Entorhinal Cortex,GM,NW,,2021-10-28,2021-10-28,,224.4,23,5161.2,2.08,0.7,,2,TREM2
+A329/10,Somatosensory Cortex,GM,NW,,2021-10-28,2021-10-28,,160.1,23,3682.3,2.05,1.6,,2,TREM2
+A153/12,Temporal Cortex BA21,GM,EA,"Split in tube, lost sample",17/12/2021,17/12/2021,,547.2,23,12585.6,2.06,1.46,Fail,2,TREM2
+A153/12,Entorhinal Cortex,GM,NW,,20211028,20211028,,112.1,23,2578.3,2.06,0.5,,2,TREM2
+20110272,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,359.8,23,8275.4,2.09,0.39,,2,TREM2
+A153/12,Somatosensory Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,117.6,23,2704.8,2.07,1.79,,2,TREM2
+19910006,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,379.4,23,8726.2,2.1,1.72,,2,TREM2
+19920200,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,366.1,23,8420.3,2.09,1.53,,2,TREM2
+20130400,Somatosensory Cortex,GM,EA,,2021-12-11,2021-12-11,,749.3,23,17233.9,2.1,1.58,,2,TREM2
+20131157,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,225.5,23,5186.5,2.08,2.16,,2,TREM2
+20130400,Entorhinal Cortex,GM,EA,,2021-12-07,2021-12-07,,437.8,23,10069.4,2.1,1.92,,2,TREM2
+20196919,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,2.70 ,366.1,23,8420.3,2.09,1.99,,2,TREM2
+A253/12,Temporal Cortex BA21,GM,NW/CD,,2021-12-02,2021-12-02,,203,23,4669,2.07,1.48,,2,TREM2
+19891015,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6,211.87,17,3601.79,2.01,1.81,,2,TREM2
+19891015,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.3,577.24,17,9813.08,2.05,2.01,,2,TREM2
+19891053,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.6,122.07,18,2197.26,2.03,1.61,,2,TREM2
+19891053,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.4,230.87,17,3924.79,2.03,1.35,,2,TREM2
+19910006,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,2.6,265.64,17,4515.88,2,1.27,,2,TREM2
+20150975,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,258.4,23,5943.2,2.1,1.51,,,
+A187/96,Entorhinal Cortex,GM,VC,,2021-09-24,2021-09-24,,279.2,23,6421.6,1.9,0.39,,2,TREM2
+19960064,Temporal Cortex BA21,? (tissue),VC,,2021-09-24,2021-09-24,,2469.3,23,56793.9,2.09,1.82,,2,TREM2
+19910334,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.8,322.56,17,5483.52,2.01,2.15,,2,TREM2
+19960064,Temporal Cortex BA21,GM,VC,,2021-09-24,2021-09-24,,833.7,23,19175.1,2,1.53,,2,TREM2
+19920001,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5,215.27,17,3659.59,1.99,2.07,,2,TREM2
+19920001,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.9,206.1,17,3503.7,2.04,2.06,,2,TREM2
+19920035,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.2,336.86,17,5726.62,1.99,2.26,,2,TREM2
+A65/02,Entorhinal Cortex,GM,VC,,2021-09-24,2021-09-24,,397.1,23,9133.3,2.05,1.15,,2,TREM2
+19920077,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7,68.39,17,1162.63,2.01,1.49,,2,TREM2
+A166/04,Entorhinal Cortex,GM,VC/NW,,2021-09-23,2021-09-23,,343.3,23,7895.9,2.05,0.68,,2,TREM2
+19920179,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.8,280.73,17,4772.41,1.95,2.04,,2,TREM2
+19920179,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.4,229.8,17,3906.6,2.01,1.99,,2,TREM2
+19920194,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.1,582.44,17,9901.48,2.05,1.31,,2,TREM2
+19920194,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.9,266.75,17,4534.75,1.97,2.23,,2,TREM2
+19920200,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.2,673.64,17,11451.88,2.01,2.1,,2,TREM2
+19920200,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.4,743.91,17,12646.47,2.04,2.11,,2,TREM2
+19930148,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.7,290.45,17,4937.65,2.01,0.7,,2,TREM2
+A29/04,Temporal Cortex BA21,GM,VC/NW,,2021-09-23,2021-09-23,,441.7,23,10159.1,2.09,1.6,,2,TREM2
+19930154,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.7,189.73,17,3225.41,2.05,2.07,,2,TREM2
+A301/10,Somatosensory Cortex,GM,VC/NW,,2021-09-23,2021-09-23,,341.2,23,7847.6,2.07,0.72,,2,TREM2
+19930222,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,2.7,756.13,17,12854.21,2.05,2.23,,2,TREM2
+NP16/088 ,Temporal Cortex BA21,GM,VC/NW,,2021-09-23,2021-09-23,,382.3,23,8792.9,2.03,0.99,,2,TREM2
+19950030,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.3,370.21,17,6293.57,1.96,1.75,,2,TREM2
+19950030,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.2,367,17,6239,1.99,1.97,,2,TREM2
+19960064,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5,978,18,17604,2.04,2.23,,2,TREM2
+20100742,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.5,201.29,17,3421.93,1.96,0.82,,2,TREM2
+20100742,Somatosensory Cortex,GM,Xiaowen,,2021-03,,8.1,401.1,17,6818.7,2.02,1.43,,2,TREM2
+20110137,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.8,892.44,17,15171.48,2.05,2.19,,2,TREM2
+19910006,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,213.78,17,3634.26,2.03,1.36,,2,TREM2
+20129990,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,2,317.51,17,5397.67,1.97,1.58,,2,TREM2
+19910318,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,,744.89,17,12663.13,2.05,2.21,,2,TREM2
+20130325,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.8,252.5,17,4292.5,1.98,2.03,,2,TREM2
+20130325,Somatosensory Cortex,GM,Xiaowen,,2021-03,,2.7,1279.61,18,23032.98,2.04,1.96,,2,TREM2
+20150712,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.5,110.11,17,1871.87,1.97,2.18,,2,TREM2
+19910318,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,29.67,17,504.39,1.54,0.13,,2,TREM2
+20185935,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.8,349.27,17,5937.59,1.99,1.89,,2,TREM2
+19910334,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,732.52,17,12452.84,2.03,1.68,,2,TREM2
+19920035,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,905.5,18,16299,2.03,2.05,,2,TREM2
+19920077,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,110.87,17,1884.79,1.99,1.34,,2,TREM2
+19930148,Somatosensory Cortex,GM,Xiaowen,Cannot find tissue block so cannot repeat,2021-03,,,12.63,17,214.71,1.57,0.26,,2,TREM2
+19930154,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,1009.04,18,18162.72,2.06,2,,2,TREM2
+19930222,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,449.67,17,7644.39,1.94,2.04,,2,TREM2
+20110137,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,965.58,17,16414.86,2.03,1.85,,2,TREM2
+20129990,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,657.53,17,11178.01,2.03,2.23,,2,TREM2
+20150712,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,558.23,17,9489.91,2,1.81,,2,TREM2
+20185935,Somatosensory Cortex,GM,Xiaowen,,2021-03,,,809.67,18,14574.06,2.05,1.45,,2,TREM2
+A019/12,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.2,188.82,17,3209.94,2.03,1.42,,2,TREM2
+A019/12,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.6,277.81,17,4722.77,1.98,2.11,,2,TREM2
+A051/14,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.5,352.43,17,5991.31,1.99,2.11,,2,TREM2
+A051/14,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.3,184.02,17,3128.34,1.98,1.73,,2,TREM2
+A115/17,Somatosensory Cortex,GM,Xiaowen,,2021-03,,6.4,182.4,17,3100.8,2.01,2.08,,2,TREM2
+A053/11,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7,125.55,17,2134.35,1.96,1.6,,2,TREM2
+A053/11,Somatosensory Cortex,GM,Xiaowen,,2021-03,,6.7,160.81,17,2733.77,1.98,2.01,,2,TREM2
+A064/13,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.2,258.96,17,4402.32,2.04,2.1,,2,TREM2
+A064/13,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.6,280.23,17,4763.91,1.96,2.08,,2,TREM2
+A163/17,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.90 ,664.03,17,11288.51,2.06,2.21,,2,TREM2
+B509/962,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.00 ,318.29,17,5410.93,2.01,1.6,,2,TREM2
+A166/04,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.70 ,263.16,18,4736.88,2.03,2.13,,2,TREM2
+A170/13,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.10 ,212.9,17,3619.3,2.04,1.18,,2,TREM2
+DPM16/44,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.10 ,1222.92,17,20789.64,2.04,2.12,,2,TREM2
+A210/05*,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.60 ,380.5,17,6468.5,2.01,1.72,,2,TREM2
+A220/11,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.30 ,359.91,17,6118.47,2.02,1.24,,2,TREM2
+A272/15,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.30 ,117.6,17,1999.2,2.03,1.25,,2,TREM2
+A277/12,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.90 ,671.81,17,11420.77,2.05,1.25,,2,TREM2
+A282/14,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.70 ,291.4,17,4953.8,2.01,1.42,,2,TREM2
+A297/16,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.80 ,196.48,17,3340.16,1.92,1.82,,2,TREM2
+A319/11,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.70 ,83.11,17,1412.87,1.98,0.66,,2,TREM2
+PDC016,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.60 ,157.4,17,2675.8,2.05,2.01,,2,TREM2
+A354/16,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.80 ,43.95,17,747.15,1.95,0.29,,2,TREM2
+PDC026,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.50 ,132.67,17,2255.39,2.02,2.09,,2,TREM2
+A402/14,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.60 ,239.94,17,4078.98,1.98,2.18,,2,TREM2
+A163/17,Somatosensory Cortex,GM,Xiaowen,,2021-03,,6.50 ,598.77,17,10179.09,2.04,2.13,,2,TREM2
+B509/962,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.40 ,321.71,17,5469.07,1.98,2.15,,2,TREM2
+A166/04,Somatosensory Cortex,GM,Xiaowen,,2021-03,,1.40 ,201.61,18,3628.98,2.02,1.27,,2,TREM2
+A169/10,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.30 ,348.96,17,5932.32,2.04,1.61,,2,TREM2
+C19/93,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.50 ,578.59,17,9836.03,2.04,2.05,,2,TREM2
+A170/13,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.70 ,771.02,17,13107.34,2.04,1.56,,2,TREM2
+DPM16/44,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.30 ,637.55,17,10838.35,2.04,2.21,,2,TREM2
+A210/05*,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.50 ,397.97,18,7163.46,2,2.14,,2,TREM2
+NP12/162 ,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.40 ,222.59,17,3784.03,2.04,2.07,,2,TREM2
+A220/11,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.50 ,376.43,17,6399.31,2.01,2.2,,2,TREM2
+NP13/012 ,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.70 ,1043.31,17,17736.27,2.07,2.2,,2,TREM2
+A272/15,Somatosensory Cortex,GM,Xiaowen,,2021-03,,2.90 ,276.22,17,4695.74,2.03,1.83,,2,TREM2
+NP14/128 ,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.90 ,436.62,17,7422.54,1.95,2.07,,2,TREM2
+A277/12,Somatosensory Cortex,GM,Xiaowen,,2021-03,,7.70 ,146.89,17,2497.13,1.99,1.57,,2,TREM2
+NP16/088 ,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.90 ,464.03,17,7888.51,1.96,1.27,,2,TREM2
+A282/14,Somatosensory Cortex,GM,Xiaowen,,2021-03,,6.40 ,180.67,17,3071.39,2,1.45,,2,TREM2
+NP17/023 ,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,3.70 ,396.95,17,6748.15,2,2.16,,2,TREM2
+A297/16,Somatosensory Cortex,GM,Xiaowen,,2021-03,,2.40 ,11.77,17,200.09,1.98,0.28,,2,TREM2
+P23/07,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.80 ,348.96,17,5932.32,2,1,,2,TREM2
+A319/11,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.00 ,209.11,17,3554.87,2.01,0.95,,2,TREM2
+PDC016,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,7.00 ,189.6,17,3223.2,2.01,2.15,,2,TREM2
+A354/16,Somatosensory Cortex,GM,Xiaowen,,2021-03,,3.60 ,197.01,17,3349.17,2.01,1.53,,2,TREM2
+PDC026,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,5.00 ,159.4,17,2709.8,2,1.82,,2,TREM2
+A402/14,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.70 ,156.73,17,2664.41,1.98,0.64,,2,TREM2
+A019/12,Entorhinal Cortex,GM,ND,No data (prior to SS RECORDS),ND,,6.4,,,0,,,Pass,#N/A,Nuclei Enrichment
+A051/14,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,7.8,,,0,,,Pass,#N/A,Nuclei Enrichment
+A053/11,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6.8,,,0,,,Pass,#N/A,Nuclei Enrichment
+A096/14,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6,,,0,,,Pass,#N/A,Nuclei Enrichment
+A115/17,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,7.7,,,0,,,Pass,#N/A,Nuclei Enrichment
+A127/11,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6,,,0,,,Pass,#N/A,Nuclei Enrichment
+A163/17,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,7.7,,,0,,,Pass,#N/A,Nuclei Enrichment
+A169/10,Entorhinal Cortex,GM,ND,,ND,,6.6,,,0,,,,#N/A,Nuclei Enrichment
+A170/13,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,3.3,,,0,,,Pass,#N/A,Nuclei Enrichment
+A272/15,Entorhinal Cortex,GM,ND,No data (prior to SS rECords) AMYS STUDY,ND,,2.6,,17,0,,,Pass,#N/A,Nuclei Enrichment
+A277/12,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6.8,,,0,,,Pass,#N/A,Nuclei Enrichment
+A282/14,Entorhinal Cortex,GM,ND,,ND,,8.2,,,0,,,Pass,#N/A,Nuclei Enrichment
+A297/16,Entorhinal Cortex,GM,ND,,ND,,3.4,,,0,,,Pass,#N/A,Nuclei Enrichment
+A319/11,Entorhinal Cortex,GM,ND,,ND,,4.6,,,0,,,Pass,#N/A,Nuclei Enrichment
+PDC016,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6.6,,17,0,,,Pass,#N/A,Nuclei Enrichment
+PDC026,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,4.1,,17,0,,,Pass,#N/A,Nuclei Enrichment
+A402/14,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,6.9,,,0,,,Pass,#N/A,Nuclei Enrichment
+A354/16,Entorhinal Cortex,GM,ND,No data (prior to SS rEntorhinal Cortexords),ND,,3.9,,,0,,,Pass,#N/A,Nuclei Enrichment
+A074/05*,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,1.9,329.05,17,5593.85,2.03,1.51,,2,TREM2
+A074/05*,Somatosensory Cortex,GM,Xiaowen,,2021-03,,1.6,1221,17,20757,2.04,2.17,,2,TREM2
+A096/14,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.6,871.57,17,14816.69,2.04,2.17,,2,TREM2
+A096/14,Somatosensory Cortex,GM,Xiaowen,,2021-03,,5.3,231.62,17,3937.54,2.01,1.58,,2,TREM2
+19910334,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,254,23,5842,2.09,1.63,,2,TREM2
+A115/17,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,6.1,222.28,17,3778.76,2,1.27,,2,TREM2
+19920077,Entorhinal Cortex,GM,EA, ,24/11/2021,24/11/2021, ,1236.7,23,28444.1,2.04,0.9,,2,TREM2
+A127/11,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.6,155.38,17,2641.46,1.87,1.41,,2,TREM2
+19930148,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,330.4,23,7599.2,2.09,0.99,,2,TREM2
+19930154,Entorhinal Cortex,GM,EA, ,24/11/2021,24/11/2021, ,264.8,23,6090.4,2.06,0.98,,2,TREM2
+A127/11,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.9,557.84,17,9483.28,2.04,1.65,,2,TREM2
+19950136,temporal Cortex BA21,GM,EA, ,24/11/2021,24/11/2021, ,338.8,23,7792.4,2.06,0.65,,2,TREM2
+19950136,Somatosensory Cortex,GM,EA, ,12/3/2021,12/3/2021, ,595.3,23,13691.9,2.08,1.6,,2,TREM2
+A138/12,Temporal Cortex BA21,GM,Xiaowen,,2021-03,,4.4,695.5,17,11823.5,2.04,2.14,,2,TREM2
+20130400,temporal Cortex BA21,GM,EA, ,12/2/2021,12/2/2021, ,596.3,23,13714.9,2.07,1.07,,2,TREM2
+A138/12,Somatosensory Cortex,GM,Xiaowen,,2021-03,,4.6,267.15,17,4541.55,2,1.94,,2,TREM2
+19960064,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,643.8,23,14807.4,2.11,1.3,,2,TREM2
+20141901,Somatosensory Cortex,GM,NW,,2021-10-22,2021-10-22,,190.5,45,8572.5,2.08,1.23,,2,TREM2
+A23/02,Entorhinal Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,337.5,23,7762.5,2.1,2.14,,2,TREM2
+A29/04,Somatosensory Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,16.8,23,386.4,1.63,0.71,,2,TREM2
+20141901,Temporal Cortex BA21,GM,NW,,###############################################################################################################################################################################################################################################################,###############################################################################################################################################################################################################################################################,,170.7,23,3926.1,2.07,0.76,,2,TREM2
+20141901,Entorhinal Cortex,GM,NW/CD,,2021-12-02,2021-12-02,,246.5,23,5669.5,2.09,1.8,,2,TREM2
+20152915,Somatosensory Cortex,GM,EA,,2021-11-04,2021-11-04,6.30 ,444,23,10212,2.12,0.64,,2,TREM2
+20152915,Temporal Cortex BA21,GM,EA,,2021-11-04,2021-11-04,,323.3,23,7435.9,2.09,1.68,,2,TREM2
+A29/04,Entorhinal Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,58.8,23,1352.4,1.98,0.27,,2,TREM2
+20152915,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,754.3,23,17348.9,2.07,1.37,,2,TREM2
+A319/11,Entorhinal Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,170.8,23,3928.4,2.05,0.58,,2,TREM2
+20130325,Entorhinal Cortex,GM,EA, ,12/3/2021,12/3/2021, ,166.7,23,3834.1,2.09,0.58,,2,TREM2
+20185910,Entorhinal Cortex,GM,EA,,2021-12-07,2021-12-07,,511.8,23,11771.4,2.11,0.92,,2,TREM2
+20185910,Somatosensory Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,42.8,23,984.4,2.04,0.69,,2,TREM2
+20131157,Somatosensory Cortex,GM,EA, ,2021-12-03,2021-12-03,6.1,254.8,23,5860.4,2.08,1.36,,2,TREM2
+A65/02,Somatosensory Cortex,GM,XZ/VC/NW,,2021-09-22,2021-09-22,,412.1,23,9478.3,2.09,0.81,,2,TREM2
+20185945,Temporal Cortex BA21,GM,NW,,2021-10-22,2021-10-22,,273.6,45,12312,2.08,0.83,,2,TREM2
+A013/03,Entorhinal Cortex,GM,EA,,2021-12-15,2021-12-15,,633.4,23,14568.2,2.06,1.77,,2,TREM2
+20185945,Somatosensory Cortex,GM,EA, ,2021-11-24,2021-11-24,6.8,413.3,23,9505.9,2.07,0.6,,2,TREM2
+20185945,Entorhinal Cortex,GM,EA, ,2021-12-03,2021-12-03, ,377.1,23,8673.3,2.11,1.25,,2,TREM2
+20196909,Somatosensory Cortex,GM,EA, ,2021-12-02,2021-12-02, ,378.6,23,8707.8,2.11,1.9,,2,TREM2
+A013/03,Somatosensory Cortex,GM,EA,,2021-12-20,2021-12-20,,632.7,23,14552.1,2.08,2.11,,2,TREM2
+20196919,temporal Cortex BA21,GM,EA, ,2021-12-02,2021-12-02, ,360.3,23,8286.9,2.11,1.64,,2,TREM2
+20196919,somatosensory Cortex,GM,EA, ,2021-12-02,2021-12-02, ,574.7,23,13218.1,2.1,0.97,,2,TREM2
+20196928,Somatosensory Cortex,GM,EA, ,2021-12-02,2021-12-02, ,370.9,23,8530.7,2.09,1.9,,2,TREM2
+20196928,Entorhinal Cortex,GM,EA, ,2021-12-03,2021-12-03, ,416.6,23,9581.8,2.12,1.66,,2,TREM2
+20196928,temporal Cortex BA21,GM,EA, ,2021-12-03,2021-12-03, ,668.2,23,15368.6,2.07,1.39,,2,TREM2
+A013/03,Temporal Cortex BA21,GM,EA,,2021-12-20,2021-12-20,,498.2,23,11458.6,2.03,0.58,,2,TREM2
+A138/12,Entorhinal Cortex,GM,EA,,2021-12-15,2021-12-15,6.30 ,325.6,23,7488.8,2.09,1.21,,2,TREM2
+20030099,Entorhinal Cortex,GM,EA,,2021-12-15,2021-12-15,1.90 ,538.3,23,12380.9,2.06,0.62,,2,TREM2
+20030099,Somatosensory Cortex,GM,EA,,2021-12-15,2021-12-15,,778.4,23,17903.2,2.06,0.71,,2,TREM2
+A187/96*,Somatosensory Cortex,GM,EA,,2021-12-15,2021-12-15,,401.6,23,9236.8,2.1,0.78,,2,TREM2
+A301/10,Temporal Cortex BA21,GM,EA,,2021-12-20,2021-12-20,,417,23,9591,2.02,0.57,,2,TREM2
+BC454/945,Temporal Cortex BA21,GM,EA,,2021-12-20,2021-12-20,,930.7,23,21406.1,2.09,1.49,,2,TREM2
+DPM13/19,Somatosensory Cortex,GM,EA,,2021-12-15,2021-12-15,,770.4,23,17719.2,2.07,1.31,,2,TREM2
+DPM13/19,Temporal Cortex BA21,GM,EA,,2021-12-17,2021-12-17,,541.3,23,12449.9,2.05,1.77,,2,TREM2
+DPM13/19,Entorhinal Cortex,GM,EA,,2021-12-17,2021-12-17,,762.3,23,17532.9,2.03,1.84,,2,TREM2
+A253/12,entorhinal Cortex,GM,EA, ,2021-12-02,2021-12-02, ,270.8,23,6228.4,2,0.26,,,
+DPM13/42,Entorhinal cortex,GM,EA,,2021-12-17,2021-12-17,,729.6,23,16780.8,2.05,1.53,,2,TREM2
+DPM13/42,Somatosensory Cortex,GM,EA,,2021-12-17,2021-12-17,,485.9,23,11175.7,2.08,0.78,,2,TREM2
+DPM13/42,Temporal Cortex BA21,GM,EA,,2021-12-20,2021-12-20,,697.3,23,16037.9,2.09,1.56,,2,TREM2
+P3/09,Temporal Cortex BA21,GM,EA,,2021-12-15,2021-12-15,,571.5,23,13144.5,2.05,0.76,,2,TREM2
+BC454/945,Temporal Cortex BA21,GM,EA,labelled B945,2021-12-20,2021-12-20,,815.4,23,18754.2,2.08,2.12,,2,TREM2
+A026/14,Temporal Cortex BA21,GM,EA,,2022-08-05,2022-08-05,,525.2,23,12079.6,2.11,0.72,Pass,3,MAP
+2017-109,Inferior temporal gyrus,GM,EA,,2022-08-05,2022-05-08,,631.5,23,14524.5,2.09,2.19,Pass,4,Tissue Quality Control
+2015-016,Inferior temporal gyrus,GM,EA,,2022-08-05,2022-08-05,,338.6,23,7787.8,2.08,2.14,Pass,4,Tissue Quality Control
+A119/20,Dorsolateral Prefrontal Cortex,GM,EA,,2022-08-05,2022-08-05,,611,23,14053,2.08,2.15,Pass,3,MAP
+A277/12,Dorsolateral Prefrontal Cortex,Gm,EA,,2022-08-05,2022-08-05,,695.2,23,15989.6,2.08,2.24,Pass,3,MAP
+SD046_13,Temporal Cortex BA21,GM,EA,,2022-08-05,2022-08-05,,803.5,23,18480.5,2.09,1.12,Pass,3,MAP
+2017-016,Inferior temporal gyrus,GM,EA,,2022-08-05,2022-08-05,,759.8,23,17475.4,2.09,2.25,Pass,4,Tissue Quality Control
+A080/18,Temporal Cortex BA21,GM,EA,,2022-08-05,2022-08-05,,771.2,23,17737.6,2.08,1.36,Pass,3,MAP
+A041/20,Dorsolateral Prefrontal Cortex,GM,EA,,2022-08-05,2022-08-05,,747.7,23,17197.1,2.07,1.98,Pass,3,MAP
+SD022_14,Dorsolateral Prefrontal Cortex,GM,EA,,2022-08-05,2022-08-05,,218,23,5014,2.04,1.77,Pass,3,MAP
+A141/18,Dorsolateral Prefrontal Cortex,GM,EA,,2022-08-10,2022-08-10,,1041.3,23,23949.9,2.09,2.2,Pass,3,MAP
+1190,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,1140.1,23,26222.3,2.09,2.27,Pass,3,MAP
+A277/12,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,357,23,8211,2.09,1.93,Pass,3,MAP
+2017-093,Inferior temporal gyrus,GM,EA,,2022-08-10,2022-08-10,,677.9,23,15591.7,2.07,2.27,Pass,4,Tissue Quality Control
+A237/16,Dorsolateral Prefrontal Cortex,GM,EA,,2022-08-10,2022-08-10,,584.7,23,13448.1,2.02,1.54,Pass,3,MAP
+SD004_19,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,531.9,23,12233.7,2.09,1.15,Pass,3,MAP
+SD022_14,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,427.3,23,9827.9,2.1,2.16,Pass,3,MAP
+A253/12,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,604.3,23,13898.9,2.07,2.27,Pass,3,MAP
+1066,Temporal Cortex BA21,GM,EA,,2022-08-10,2022-08-10,,636,23,14628,2.06,1.87,Pass,3,MAP
+2018-123,Inferior temporal gyrus,GM,EA,,2022-08-10,2022-08-10,,787.3,23,18107.9,2.1,1.61,Pass,4,Tissue Quality Control
+2015-033,Inferior temporal gyrus,GM,NW,,2022-08-17,2022-08-17,,271.2,33,8949.6,2.09,1.29,Pass,4,Tissue Quality Control
+SD004_19,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,48.5,33,1600.5,1.93,0.19,Pass,3,MAP
+1072,Temporal Cortex BA21,GM,NW,,2022-08-17,2022-08-17,,412.9,33,13625.7,2.04,1.58,Pass,3,MAP
+A253/12,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,218.7,33,7217.1,2.07,1.39,Pass,3,MAP
+A282/15,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,365.4,33,12058.2,2.09,1.98,Pass,3,MAP
+SD046_13,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,308.5,33,10180.5,2.05,0.05,Pass,3,MAP
+1191,Temporal Cortex BA21,GM,NW,,2022-08-17,2022-08-17,,596.2,33,19674.6,2.13,0.83,Pass,3,MAP
+1149,Temporal Cortex BA21,GM,NW,,2022-08-17,2022-08-17,,307.2,33,10137.6,2.07,0.84,Pass,3,MAP
+1190,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,467.1,33,15414.3,2.11,1.42,Pass,3,MAP
+1160,Dorsolateral Prefrontal,GM,NW,,2022-08-17,2022-08-17,,447.5,33,14767.5,2.11,1.33,Pass,3,MAP
+2017-005,Inferior temporal gyrus,GM,EA,,2022-08-18,2022-08-18,,291.9,33,9632.7,2.08,0.87,Pass,4,Tissue Quality Control
+1149,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,428.6,33,14143.8,2.1,0.91,Pass,3,MAP
+A250/14,Temporal Cortex BA21,GM,EA,,2022-08-18,2022-08-18,,406.3,33,13407.9,2.1,2.07,Pass,3,MAP
+1191,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,653.9,33,21578.7,2.08,0.76,Pass,3,MAP
+1072,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,435.7,33,14378.1,2.09,0.66,Pass,3,MAP
+SD034_17,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,398.7,33,13157.1,2.1,1.48,Pass,3,MAP
+A282/15,Temporal Cortex BA21,GM,EA,,2022-08-18,2022-08-18,,431.5,33,14239.5,1.97,1.33,Pass,3,MAP
+1165,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,536.8,33,17714.4,2.08,1.2,Pass,3,MAP
+2018-112,Inferior temporal gyrus,GM,EA,,2022-08-18,2022-08-18,,315.8,33,10421.4,2.03,0.41,Pass,4,Tissue Quality Control
+SD006_14,Dorsolateral Prefrontal,GM,EA,,2022-08-18,2022-08-18,,357.6,33,11800.8,2.06,0.38,Pass,3,MAP
+1122,Temporal Cortex BA21,GM,EA,,2022-08-23,2022-08-23,,519.6,33,17146.8,2.12,1.12,Pass,3,MAP
+A080/18,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,598.3,33,19743.9,2.1,1.8,Pass,3,MAP
+1122,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,358.5,33,11830.5,2.11,1.11,Pass,3,MAP
+A041/20,Temporal Cortex BA21,GM,EA,,2022-08-23,2022-08-23,,595.9,33,19664.7,2.1,1.7,Pass,3,MAP
+2018-030,Inferior temporal gyrus,GM,EA,,2022-08-23,2022-08-23,,298.3,33,9843.9,2.09,1.28,Pass,4,Tissue Quality Control
+1194,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,457.9,33,15110.7,2.1,0.65,Pass,3,MAP
+SD005_14,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,407.3,33,13440.9,2.11,0.74,Pass,3,MAP
+SD025_11,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,440,33,14520,2.12,1.16,Pass,3,MAP
+A119/20,Temporal Cortex BA21,GM,EA,,2022-08-23,2022-08-23,,411.1,33,13566.3,2.09,0.5,Pass,3,MAP
+A250/14,Dorsolateral Prefrontal,GM,EA,,2022-08-23,2022-08-23,,496.9,33,16397.7,2.13,0.94,Pass,3,MAP
+1152,Temporal Cortex BA21,GM,EA,,2022-09-06,2022-09-06,,648.4,33,21397.2,2.08,1.05,Pass,3,MAP
+1066,Dorsolateral Prefrontal,GM,EA,,2022-09-06,2022-09-06,,281.4,33,9286.2,2.1,0.75,Pass,3,MAP
+A026/14,Dorsolateral Prefrontal,GM,EA,,2022-09-06,2022-09-06,,233.1,33,7692.3,2.09,0.86,Pass,3,MAP
+1160,Temporal Cortex BA21,GM,EA,,2022-09-06,2022-09-06,,342.6,33,11305.8,2.1,0.85,Pass,3,MAP
+A141/18,Temporal Cortex BA21,GM,EA,,2022-09-06,2022-09-06,,497.1,33,16404.3,2.11,1.43,Pass,3,MAP
+A311/17,Dorsolateral Prefrontal,GM,EA,,2022-09-06,2022-09-06,,232.9,33,7685.7,1.94,0.83,Pass,3,MAP
+A237/16,Temporal Cortex BA21,GM,EA,,2022-09-06,2022-09-06,,325.5,33,10741.5,2.09,1.44,Pass,3,MAP
+2015-027,Inferior temporal gyrus,GM,EA,,2022-09-06,2022-09-06,,436.7,33,14411.1,2.11,1.45,Pass,4,Tissue Quality Control
+1152,Dorsolateral Prefrontal,GM,EA,,2022-09-06,2022-09-06,,559.9,33,18476.7,2.04,1.41,Pass,3,MAP
+1165,Temporal Cortex BA21,GM,EA,,2022-09-06,2022-09-06,,484,33,15972,2.1,0.76,Pass,3,MAP
+A311/17,Temporal Cortex BA21,GM,EA,,2022-09-07,2022-09-07,,321.5,33,10609.5,2.08,0.59,Pass,3,MAP
+1194,Temporal Cortex BA21,GM,EA,,2022-09-07,2022-09-07,,303.8,33,10025.4,2.08,1.87,Pass,3,MAP
+2018-105,Inferior temporal gyrus,GM,EA,,2022-09-07,2022-09-07,,458,33,15114,2.1,1.71,Pass,4,Tissue Quality Control
+2015-074,Inferior temporal gyrus,GM,EA,,2022-09-07,2022-09-07,,319.4,33,10540.2,2.09,1.66,Pass,4,Tissue Quality Control
+SD030/07,T5,GM,EA,,2022-09-07,2022-09-07,,149.7,33,4940.1,2.04,2.12,Pass,3,MAP
+SD030/11,IF,GM,EA,,2022-09-07,2022-09-07,,257.5,33,8497.5,2.08,1.36,Pass,2,TREM2
+PDC165,CLC5,GM,EA,,2022-09-07,2022-09-07,,444.4,33,14665.2,2.1,1.83,Pass,3,MAP
+2015-033,Inferior temporal gyrus,GM,NW,,2022-09-15,2022-09-15,,141.4,33,4666.2,2.03,1.48,Pass,4,Tissue Quality Control
+1066,Dorsolateral Prefrontal,GM,EA,,2022-11-17,2022-11-17,,236.7,31,7337.7,2.04,0.45,,3,MAP
+A026/14,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,200.3,31,6209.3,2.02,0.42,,3,MAP
+1072,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,419.5,31,13004.5,2.09,0.87,,3,MAP
+1122,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,245.1,31,7598.1,2.07,0.44,,3,MAP
+1160,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,253.9,31,7870.9,2.05,0.56,,3,MAP
+A041/20,Dorsolateral Prefrontal,GM,EA,,2022-11-17,2022-11-17,,264.8,31,8208.8,2.07,0.8,,3,MAP
+A119/20,Dorsolateral Prefrontal,GM,EA,,2022-11-17,2022-11-17,,321.4,31,9963.4,2.06,0.92,,3,MAP
+A277/12,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,337.1,31,10450.1,2.09,0.99,,3,MAP
+A282/15,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,173.2,31,5369.2,2.05,0.33,,3,MAP
+SD004_19,Temporal Cortex BA21,GM,EA,,2022-11-17,2022-11-17,,261.2,31,8097.2,2.06,0.68,,3,MAP
+1072,Dorsolateral Prefrontal,GM,EA,,2022-11-18,2022-11-18,,182.7,31,5663.7,2.1,0.48,,3,MAP
+1152,Temporal Cortex BA21,GM,EA,,2022-11-18,2022-11-18,,172.7,31,5353.7,2.07,1.65,,3,MAP
+2015-016,Inferior temporal gyrus,GM,EA,,2022-11-18,2022-11-18,,290.3,31,8999.3,2.1,0.92,,3,MAP
+A026-14,Dorsolateral Prefrontal,GM,EA,,2022-11-18,2022-11-18,,224.3,31,6953.3,2.08,1.45,,3,MAP
+1066,Temporal Cortex BA21,GM,EA,,2022-11-18,2022-11-18,,156.7,31,4857.7,2.08,0.42,,3,MAP
+A041-20,Temporal Cortex BA21,GM,EA,,2022-11-18,2022-11-18,,231.3,31,7170.3,2.1,0.41,,3,MAP
+A119-20,Temporal Cortex BA21,GM,EA,,2022-11-18,2022-11-18,,271.2,31,8407.2,2.12,0.49,,3,MAP
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,0,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,

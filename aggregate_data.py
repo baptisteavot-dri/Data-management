@@ -157,7 +157,7 @@ all_data=all_data[['Sample_ID','Sample_Name_original',
                  'Enrichment','CaseID','Study','Brain region',
                  'Brain region original','Braak','Sex','Age',
                  'NeuropathologicalDiagnosis','TREM2Variant',
-                 'APOE','PostMortemDelayHours',
+                 'APOE','PostMortemDelayHours','CaseID (normalized)',
                  'Sample_Name_normalized',
                  'BrainBankNetworkID_normalized']]
 
@@ -234,6 +234,21 @@ cd33=pd.read_csv('cd33_genotype.csv')
 cd33['individual']=cd33['individual'].str.replace('-','_')
 cd33.set_index('individual',inplace=True)
 
+# import RIN data
+bulkrna=pd.read_csv('BulkRNA.csv')
+bulkrna['CaseID']=bulkrna['CaseID'].str.replace('-','_')
+bulkrna['CaseID']=bulkrna['CaseID'].str.replace('/','_')
+bulkrna['CaseID']=bulkrna['CaseID'].str.replace('*','')
+bulkrna.set_index('CaseID',inplace=True)
+
+# import TissueQC metadata
+tissueqc=pd.read_csv('TQC_metadata.csv', encoding='unicode_escape')
+tissueqc=tissueqc.loc[(tissueqc['Brain_Bank']=='Netherlands') | (tissueqc['Brain_Bank']=='McGill')]
+tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('-','_')
+tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('/','_')
+tissueqc['Case_ID']=tissueqc['Case_ID'].str.replace('*','')
+tissueqc.set_index('Case_ID',inplace=True)
+
 # formatting sample names for merging
 all_data['index']=all_data['Sample_Name_original'].str.replace('-','_')
 all_data['index']=all_data['index'].str.replace('_EC','')
@@ -244,9 +259,16 @@ all_data['index']=all_data['index'].str.replace('_mTemp','')
 all_data.reset_index(inplace=True,drop=False)
 all_data.set_index('index',inplace=True,drop=False)
 all_data=all_data.join(cd33)
-all_data.set_index('Sample_ID',inplace=True,drop=False)
 
+
+# merging all_data with TissueQC metadata
+all_data.set_index('CaseID (normalized)',inplace=True,drop=False)
+all_data=all_data.join(bulkrna[['RIN','NanodropRNAConcentration_ng_ul']])
+all_data=all_data.join(tissueqc[['Storage_Temp','Time_Delay']])
+
+all_data.set_index('Sample_ID',inplace=True,drop=False)
 all_data=all_data.join(counts)
+all_data.drop_duplicates('Sample_ID',inplace=True)
 
 # creating new standardized sample names
 all_data['Sample_Name']= all_data['BrainBankNetworkID_normalized']+'_'+all_data['Brain region']
@@ -280,44 +302,45 @@ all_data_duplicates=all_data_duplicates.loc[all_data_duplicates['data_type']=='b
 all_data_duplicates.to_csv('duplicates.csv')
 
 # saving test metadata and paths to csv file
-all_data.loc[all_data['Study']=='TREM2'].to_csv('sampleInfo_all_dataseq_trem2_internal.csv')
-all_data.loc[all_data['Study']=='MAP'].to_csv('sampleInfo_all_dataseq_map_internal.csv')
-all_data.loc[all_data['Study']=='Tissue Quality Control'].to_csv('sampleInfo_all_dataseq_tissueQC_internal.csv')
+all_data.loc[all_data['Study']=='TREM2'].to_csv('sampleInfo_all_dataseq_trem2_internal.csv', index=False)
+all_data.loc[all_data['Study']=='MAP'].to_csv('sampleInfo_all_dataseq_map_internal.csv', index=False)
+all_data.loc[all_data['Study']=='Tissue Quality Control'].to_csv('sampleInfo_all_dataseq_tissueQC_internal.csv', index=False)
 all_data['BrainBankNetworkID']=all_data['BrainBankNetworkID_original']
 
 # saving sample sheet and metadata to csv file
 all_data.loc[all_data['Study']=='MAP'][['Study', 'Study_ID','BrainBankNetworkID',
-        'Brain region','Sample_Name']]. \
+        'Brain region','Sample_Name','data_type']]. \
                 to_csv('MAP/samplesheet_MAP.csv',index=False)
 
 all_data.loc[all_data['Study']=='MAP'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
                 'TREM2Variant','APOE',
-                'PostMortemDelayHours']].drop_duplicates('BrainBankNetworkID'). \
+                'PostMortemDelayHours','RIN']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('MAP/donor_metadata.csv', index=False)
 
 all_data.loc[all_data['Study']=='TREM2'][['Study', 'Study_ID','BrainBankNetworkID',
-        'Brain region','Sample_Name']]. \
+        'Brain region','Sample_Name','data_type']]. \
                 to_csv('TREM2/samplesheet_TREM2.csv',index=False)
 
 all_data.loc[all_data['Study']=='TREM2'][['BrainBankNetworkID',
                 'BrainBank','Braak','Sex','Age',
                 'NeuropathologicalDiagnosis',
                 'TREM2Variant','APOE','CD33',
-                'PostMortemDelayHours','CD33_group']].drop_duplicates('BrainBankNetworkID'). \
+                'PostMortemDelayHours','CD33_group','RIN']].drop_duplicates('BrainBankNetworkID'). \
                 to_csv('TREM2/donor_metadata.csv', index=False)
 
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['Study', 'Study_ID','BrainBankNetworkID',
-        'Brain region','Sample_Name']]. \
+        'Brain region','Sample_Name','data_type']]. \
                 to_csv('TissueQC/samplesheet_TissueQC.csv',index=False)
 
 all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
-                        'Brain region','Sample_Name']]. \
+                        'Brain region','Sample_Name','Storage_Temp','Time_Delay']]. \
+                        drop_duplicates('BrainBankNetworkID'). \
                 to_csv('TissueQC/donor_metadata.csv', index=False)
 
 # select samples from a specific study
-# all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
+all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
 all_data[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
 
 def write_paths(all_data,data_type):
@@ -397,3 +420,5 @@ all=set(pd.concat([all_data['New_name_R1'],all_data['New_name_R2']],axis=0).to_l
 uploaded=set(uploaded.filename.to_list())
 missing=all.difference(uploaded)
 print(missing)
+missing=pd.DataFrame(missing)
+missing.to_csv('missing.txt',index=False,header=None,sep='\t')
