@@ -2,17 +2,13 @@ import pandas as pd
 
 # import SampleSheet.csv files
 keys=list()
-for i in range(1,142):
+for i in range(1,160):
     X=pd.read_csv('keys/key_'+str(i)+'.csv')
     keys.append(X)
 
 # concatenate all files within the array
 
 Z=pd.concat(keys,axis=0)
-
-igfq0067=pd.read_csv('samplesheet_IGFQ001167.csv')
-igfq0067['CaseID']=igfq0067['CASE ID']
-Z=pd.concat([Z,igfq0067],axis=0)
 
 # remove last part of IGF ID
 Z[['Sample_ID','misc','misc_1']]=Z['Sample_ID'].str.split('_',expand=True)
@@ -21,18 +17,22 @@ Z.drop(['misc','misc_1'],axis=1,inplace=True)
 
 # remove duplicates
 Z.drop_duplicates('Sample_ID',inplace=True)
+Z.to_csv('tmp.csv')
 
 # keeping only relevant columns from key file
-keys=Z[['Sample_ID','Sample_Name']]
+keys=Z[['Sample_ID','Sample_Name', 'I7_Index_ID']]
 keys['Sample_Name']=keys['Sample_Name'].str.replace('DPFC','FC')
 keys['Sample_Name']=keys['Sample_Name'].str.replace('PFC','FC')
 
 # extracting brain region from sample name
-keys['Brain region'] = keys.Sample_Name.str.extract(pat='(EC|SSC|mTemp|MTEMP|MTG|SOM|FC|ITG)',expand=False)
+keys['Brain region'] = keys.Sample_Name.str.extract(pat='(EC|SSC|mTemp|mtemp|MTEMP|MTG|SOM|FC|ITG)',expand=False)
+keys['RNAseq/ATACseq'] = keys.I7_Index_ID.str.extract(pat='(TT|NA)',expand=False)
 keys['Enrichment'] = keys.Sample_Name.str.extract(pat='(UNS|ENR|NEG)',expand=False)
 keys['Enrichment'] = keys['Enrichment'].str.replace('NEG','GEN')
 keys['Enrichment'] = keys['Enrichment'].str.replace('ENR','GEN')
 keys['Brain region'] = keys['Brain region'].str.replace('FC','PFC')
+keys['RNAseq/ATACseq'] = keys['RNAseq/ATACseq'].str.replace('NA','ATACseq')
+keys['RNAseq/ATACseq'] = keys['RNAseq/ATACseq'].str.replace('TT','RNAseq')
 
 # keeping original sample name
 keys['Sample_Name_original']=keys['Sample_Name']
@@ -50,10 +50,12 @@ keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_EC',
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SSC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_mTemp','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_MTEMP','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_mtemp','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_MTG','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_SOM','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_DPFC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_ITG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_FC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('EC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('SSC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('mTemp','')
@@ -62,7 +64,9 @@ keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('SOM',
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('DPFC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('ITG','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('MTG','')
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('FC','')
 keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_[0-9]$','',regex=True) 
+keys['Sample_Name_normalized']=keys['Sample_Name_normalized'].str.replace('_$','',regex=True)
 
   
 # importing AD database
@@ -73,32 +77,35 @@ map_database['CaseID (normalized)']=map_database['CaseID'].str.replace('-','_')
 map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('.','_')
 map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('/','_')
 map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace('*','')
+map_database['CaseID (normalized)']=map_database['CaseID (normalized)'].str.replace(' ','')
 
 # normalizing BrainBankNetworkID
 map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID '].str.replace('-','_')
 map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('.','_')
 map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace('/','_')
+map_database['BrainBankNetworkID_normalized']=map_database['BrainBankNetworkID_normalized'].str.replace(' ','')
 
 # setting index for merging
-map_database.set_index('CaseID (normalized)',inplace=True, drop=False)
-keys.set_index('Sample_Name_normalized',inplace=True,drop=False)
+#map_database.set_index('CaseID (normalized)',inplace=True, drop=False)
+#keys.set_index('Sample_Name_normalized',inplace=True,drop=False)
 
 # dropping rows with missing BrainBankID
 map_database.dropna(subset=['BrainBankID'],inplace=True)
 
 # keeping original BrainBankID
 map_database['BrainBankNetworkID_original']=map_database['BrainBankNetworkID ']
-map_database_2=map_database.set_index('BrainBankNetworkID_normalized',drop=False)
+#map_database_2=map_database.set_index('BrainBankNetworkID_normalized',drop=False)
 
 keys.to_csv('keys.csv')
 
 # merging keys with AD database
-keys_merged_1=map_database.join(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original']])
-keys_merged_2=map_database_2.join(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original']])
-
+keys_merged_1=map_database.merge(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original','RNAseq/ATACseq']],left_on='BrainBankNetworkID_normalized',right_on='Sample_Name_normalized',how='inner')
+keys_merged_2=map_database.merge(keys[['Sample_ID','Brain region','Enrichment','Sample_Name_normalized','Sample_Name_original','RNAseq/ATACseq']],left_on='CaseID (normalized)',right_on='Sample_Name_normalized',how='inner')
 # concatenating the two dataframes
 
 all_data=pd.concat([keys_merged_1,keys_merged_2],axis=0)
+
+all_data.to_csv('all_data.csv')
 
 # opening text file with all fastq paths
 all_fastqs = open("all_fastqs.txt", "r")
@@ -142,6 +149,7 @@ all_data['Brain region original']=all_data['Brain region']
 # renaming brain regions to standard names
 all_data['Brain region']=all_data['Brain region'].str.replace('mTemp','MTG')
 all_data['Brain region']=all_data['Brain region'].str.replace('MTEMP','MTG')
+all_data['Brain region']=all_data['Brain region'].str.replace('mtemp','MTG')
 all_data['Brain region']=all_data['Brain region'].str.replace('SOM','SSC')
 
 # replacing diagnosis column name
@@ -158,7 +166,7 @@ all_data=all_data[['Sample_ID','Sample_Name_original',
                  'Brain region original','Braak','Sex','Age',
                  'NeuropathologicalDiagnosis','TREM2Variant',
                  'APOE','PostMortemDelayHours','CaseID (normalized)',
-                 'Sample_Name_normalized',
+                 'Sample_Name_normalized', 'RNAseq/ATACseq',
                  'BrainBankNetworkID_normalized']]
 
 # setting the right indeces before merging
@@ -193,9 +201,9 @@ studyid2datatype={'IGFQ000852':'snRNAseq','IGFQ000883':'snRNAseq',
                   'IGFQ001254':'bulkRNAseq','IGFQ001346':'snRNAseq',
                   'IGFQ001404':'bulkRNAseq','IGFQ001462':'bulkRNAseq',
                   'IGFQ001500':'snRNAseq','IGFQ001509':'bulkRNAseq',
-                  'IGFQ001529':'snRNAseq','IGFQ001546':'snRNAseq',
+                  'IGFQ001529':'multiome','IGFQ001546':'multiome',
                   'IGFQ001613':'snRNAseq','IGFQ001637':'snRNAseq',
-                  'IGFQ001651':'snRNAseq','IGFQ001663':'snRNAseq'}
+                  'IGFQ001651':'snRNAseq','IGFQ001663':'multiome'}
 
 studyid2enrichment={'IGFQ000852':'GEN','IGFQ000883':'UNS',
                     'IGFQ000955':'UNS','IGFQ001110':'UNS',
@@ -215,7 +223,12 @@ pathdatatype={'snRNAseq_UNS_TREM2':'/rds/general/project/ukdrmultiomicsproject/l
               'snRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/',
               'bulkRNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
               'bulkRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/',
-              'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/'
+              'snRNAseq_Tissue Quality Control':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/',
+              'multiome_RNAseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Multiomics/snRNAseq/Raw_FASTQ/',
+              'multiome_ATACseq_TREM2':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Genetically_stratified_cohorts/TREM2/Multiomics/snATACseq/Raw_FASTQ/',
+              'multiome_RNAseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Multiomics/snRNAseq/Raw_FASTQ/',
+              'multiome_ATACseq_MAP':'/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Multiomics/snATACseq/Raw_FASTQ/',
+              'multiome_RNAseq_Tissue Quality Control': '/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/Associated_tissue_studies/Understanding_post_mortem_effects/Transcriptomics/snRNAseq_cortical_tissue/Raw_FASTQ/'
               }
 
 # creating dictionary with synapse directory ID mapped to data type and project
@@ -225,7 +238,11 @@ pathsynapse={'snRNAseq_UNS_TREM2':'syn53165789',
               'snRNAseq_MAP':'syn53061538',
               'bulkRNAseq_MAP':'syn53061537',
               'bulkRNAseq_Tissue Quality Control':'syn53061539',
-              'snRNAseq_Tissue Quality Control':'syn53061540'
+              'snRNAseq_Tissue Quality Control':'syn53061540',
+              'multiome_RNAseq_TREM2':'syn53238558',
+              'multiome_ATACseq_TREM2':'syn53238555',
+              'multiome_RNAseq_MAP':'syn53238553',
+              'multiome_ATACseq_MAP':'syn53238552'
               }
 
 all_data['data_type_project']=all_data['data_type']+'_'+all_data['Study']
@@ -235,6 +252,11 @@ all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'data_type']+'_'+ \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']+'_'+ \
     all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Study']
+
+all_data.loc[(all_data['data_type']=='multiome'), 'data_type_project']= \
+    all_data.loc[(all_data['data_type']=='multiome'),'data_type']+'_'+ \
+    all_data.loc[(all_data['data_type']=='multiome'),'RNAseq/ATACseq'] +'_'+ \
+    all_data.loc[(all_data['data_type']=='multiome'),'Study']
 
 # mapping target directory with data type and project
 all_data['path_datatype']=all_data['data_type_project'].map(pathdatatype)
@@ -268,9 +290,8 @@ tissueqc_key=pd.read_csv('key_tissueqc.csv')
 tissueqc_dict=pd.Series(tissueqc_key.Sample_ID.values,index=tissueqc_key.Sample_Name_original).to_dict()
 tissueqc.loc[tissueqc['Brain_Bank']=='McGill','Sample_ID']=tissueqc.loc[tissueqc['Brain_Bank']=='McGill','BBN_ID'].map(tissueqc_dict)
 print(tissueqc.loc[tissueqc['Brain_Bank']=='McGill','Sample_ID'])
-tissueqc.to_csv('TQC_metadata.csv')
+tissueqc.to_csv('TQC_metadata.csv', index=False)
 """
-
 # keeping only samples from McGill and Netherlands
 tissueqc=tissueqc.loc[(tissueqc['Brain_Bank']=='Netherlands') | (tissueqc['Brain_Bank']=='McGill')]
 
@@ -319,8 +340,10 @@ all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),
     '_'+all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='TREM2'),'Enrichment']
 
 # dealing specifically with samples from IGFQ001254 sequencing project
-all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original'].str.replace('-','_')
-all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name']=all_data.loc[all_data['Study_ID']=='IGFQ001254','Sample_Name_original']
+all_data.loc[(all_data['Study_ID']=='IGFQ001254')|((all_data['Study_ID']=='IGFQ001663')&(all_data['Study']=='Tissue Quality Control')),'Sample_Name_original']= \
+    all_data.loc[(all_data['Study_ID']=='IGFQ001254')|((all_data['Study_ID']=='IGFQ001663')&(all_data['Study']=='Tissue Quality Control')),'Sample_Name_original'].str.replace('-','_')
+all_data.loc[(all_data['Study_ID']=='IGFQ001254')|((all_data['Study_ID']=='IGFQ001663')&(all_data['Study']=='Tissue Quality Control')),'Sample_Name']= \
+    all_data.loc[(all_data['Study_ID']=='IGFQ001254')|((all_data['Study_ID']=='IGFQ001663')&(all_data['Study']=='Tissue Quality Control')),'Sample_Name_original']
 
 # adding a column with the number of files for specific sample
 all_data['number_of_duplicates']=all_data.groupby(['Sample_Name'])['Sample_Name'].transform('count')
@@ -390,8 +413,11 @@ all_data.loc[all_data['Study']=='Tissue Quality Control'][['BrainBankNetworkID',
 all_data.loc[all_data['Study']=='Tissue Quality Control','Sample_Name_original'].to_csv('key_tissueqc.csv')
 
 # select samples from a specific study
-all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
-all_data[['New_name_R1','New_name_R2','synapse_dir_id']].to_csv('to_upload.csv',index=False,header=None)
+#all_data=all_data.loc[(all_data['Study_ID']=='IGFQ000883') | (all_data['Study_ID']=='IGFQ000955') | (all_data['Study_ID']=='IGFQ001110') | (all_data['Study_ID']=='IGFQ001346') | (all_data['Study_ID']=='IGFQ001500') | (all_data['Study_ID']=='IGFQ001651') | (all_data['Study_ID']=='IGFQ000852') ]
+# all_data=all_data.loc[(all_data['data_type']=='snRNAseq') & (all_data['Study']=='MAP')]
+all_data=all_data.loc[(all_data['data_type']=='multiome')]
+
+pd.concat([all_data[['New_name_R1','synapse_dir_id']],all_data[['New_name_R2','synapse_dir_id']]],axis=0).to_csv('to_upload.csv',index=False,header=None)
 
 # function that write the paths of the files to concatenate in a csv file
 def write_paths(all_data,data_type):
@@ -401,8 +427,7 @@ def write_paths(all_data,data_type):
                           
     if data_type=='snRNAseq':
         all_data=pd.concat([all_data[range(0,46)],all_data[['New_name_R1','New_name_R2']]],axis=1)
-        all_data. \
-        to_csv('paths_%s.csv' % (data_type),index=False,header=None)
+        all_data.to_csv('paths_%s.csv' % (data_type),index=False,header=None)
         
         paths=open('paths_%s.csv' % (data_type),'r')
         R1=open('paths_%s_R1.csv' % (data_type),'w+')
@@ -426,9 +451,7 @@ def write_paths(all_data,data_type):
             R2.close()
     else:
         all_data=pd.concat([all_data[range(0,25)],all_data[['New_name_R1','New_name_R2']]],axis=1)
-        all_data. \
-        to_csv('paths_%s.csv' % (data_type),index=False,header=None)
-
+        all_data.to_csv('paths_%s.csv' % (data_type),index=False,header=None)
         # opening csv file for both R1 and R2
         paths=open('paths_%s.csv' % (data_type),'r')
         R1=open('paths_%s_R1.csv' % (data_type),'w+')
@@ -454,7 +477,9 @@ def write_paths(all_data,data_type):
     
 write_paths(all_data,'bulkRNAseq')
 write_paths(all_data,'snRNAseq')
+write_paths(all_data,'multiome')
 
+"""
 all_data=all_data.loc[(all_data['data_type']=='bulkRNAseq')]
 all_data['New_name_R1']=all_data['New_name_R1'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
 all_data['New_name_R2']=all_data['New_name_R2'].str.replace('/rds/general/project/ukdrmultiomicsproject/live/synapse_mirror/MAP/Transcriptomics/BulkRNAseq_cortical_tissue/Raw_FASTQ/','')
@@ -476,3 +501,4 @@ missing=all.difference(uploaded)
 print(missing)
 missing=pd.DataFrame(missing)
 missing.to_csv('missing.txt',index=False,header=None,sep='\t')
+"""

@@ -1,8 +1,8 @@
 import glob
 
-IGFQ000852_files=glob.glob('keys/IGFQ000883*')
-j=110
-for i in IGFQ000852_files:
+IGFQ001167_files=glob.glob('keys/IGFQ001167*')
+j=141
+for i in IGFQ001167_files:
     new_key=open('keys/key_'+str(j)+'.csv','w+')
     write=False
     with open(i) as f:

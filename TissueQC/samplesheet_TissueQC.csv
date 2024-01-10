@@ -67,7 +67,7 @@ Tissue Quality Control,IGFQ001254,RSMG11,N/A,RSMG11_3_S1,bulkRNAseq,4.0,24.0
 Tissue Quality Control,IGFQ001254,RSMG11,N/A,RSMG11_4_S1,bulkRNAseq,4.0,6.0
 Tissue Quality Control,IGFQ001254,RSMG11,N/A,RSMG11_6_S1,bulkRNAseq,-80.0,0.0
 Tissue Quality Control,IGFQ001254,RSMG12,N/A,RSMG12_2_S1,bulkRNAseq,20.0,36.0
-Tissue Quality Control,IGFQ001254,RSMG12,N/A,RSMG12_4_S1,bulkRNAseq,20.0,24.0
+Tissue Quality Control,IGFQ001254,RSMG12,N/A,RSMG12_4_S1,bulkRNAseq,,
 Tissue Quality Control,IGFQ001254,RSMG13,N/A,RSMG13_5_S1,bulkRNAseq,20.0,6.0
 Tissue Quality Control,IGFQ001254,RSMG12,N/A,RSMG12_3_S1,bulkRNAseq,4.0,24.0
 Tissue Quality Control,IGFQ001254,RSMG12,N/A,RSMG12_5_S1,bulkRNAseq,4.0,6.0
@@ -122,3 +122,4 @@ Tissue Quality Control,IGFQ001462,S15/027,ITG,S15_027_ITG_S1,bulkRNAseq,,
 Tissue Quality Control,IGFQ001462,S18/105,ITG,S18_105_ITG_S1,bulkRNAseq,,
 Tissue Quality Control,IGFQ001462,S15/074,ITG,S15_074_ITG_S1,bulkRNAseq,,
 Tissue Quality Control,IGFQ001509,S15/016,ITG,S15_016_ITG_S2,bulkRNAseq,,
+Tissue Quality Control,IGFQ001663,RSMG12,N/A,RSMG12_4_S2,multiome,20.0,24.0
